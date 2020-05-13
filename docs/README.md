@@ -1,6 +1,6 @@
 ---
 home: true
-actionText: 快速上手 →
+actionText: Start →
 actionLink: /javaScript/
 features:
 - title: 简洁至上
