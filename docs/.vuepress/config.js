@@ -21,41 +21,6 @@ module.exports = {
                 collapsable: true,
                 children: ['/javaScript/']
             },
-            {
-                title: 'HTML与CSS',
-                collapsable: true,
-                children: ['/html/']
-            },
-            {
-                title: '计算机基础',
-                collapsable: true,
-                children: ['/computerBasics/']
-            },
-            {
-                title: '数据解构与算法',
-                collapsable: true,
-                children: ['/algorithm/']
-            },
-            {
-                title: '浏览器',
-                collapsable: true,
-                children: ['/browser/']
-            },
-            {
-                title: '前端工程',
-                collapsable: true,
-                children: ['/engineering/']
-            },
-            {
-                title: '框架与类库',
-                collapsable: true,
-                children: ['/frame/']
-            },
-            {
-                title: '项目与业务',
-                collapsable: true,
-                children: ['/other/']
-            } 
         ]
     },
     
