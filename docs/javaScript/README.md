@@ -1,5 +1,3 @@
-  # 基础
-  1
   ## 数据类型
    ES标准规定了8种数据类型，其中有7种简单数据类型：`Undefind` `Null` `Boolean` `Number` `String` `Symbol`、`BigInt`。以及1种复杂数据类型：`Object`
 
