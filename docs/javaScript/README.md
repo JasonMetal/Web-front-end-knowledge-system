@@ -1,5 +1,5 @@
   ## 数据类型
-   ES标准规定了8种数据类型，其中有7种简单数据类型：`Undefind` `Null` `Boolean` `Number` `String` `Symbol`、`BigInt`。以及1种复杂数据类型：`Object`
+   ES标准规定了8种数据类型，其中有7种简单数据类型：`Undefind`、`Null`、`Boolean`、`Number`、`String`、`Symbol`、`BigInt`。以及1种复杂数据类型：`Object`
 
    ### Undefined 类型
    Undefined 类型只有一个值，即特殊的 undefined。未初始化的变量会自动被赋予undefined值，但是显示地初始化变量依然是明智的选择。
@@ -13,7 +13,7 @@
 
     }
    ```
-   实际上，undefined值时派生自null值得，因此ECMA-262规定它们得相等性测试要返回true;
+   实际上，undefined值是派生自null值的，因此ECMA-262规定它们的相等性测试要返回true;
    ```js
     alter(null == undefined); // true
    ```
@@ -23,6 +23,7 @@
    **1. 字符串** 
 
    String 数据类型包含一些特殊的字符字面量，也叫转移序列，用于表达非打印字符，或者具有其他用途的字符
+   
    **2. 字符串** 
    字符串的特点，ES中的字符串是不可变的，也就说，字符串一旦创建，它们的值就不能改变。要改变某个变量保存的字符串，首先要摧毁原来的字符串，
    然后再用另一个包含新值的字符串填充该变量，例如：
@@ -237,7 +238,7 @@
     
    ## 变量
    ### 复制变量值
-   如果从一个变量像另一个变量赋值基本类型的值，会在变量对象上创建一新值，然后把该值复制到新变量分配的位置上。看下例子：
+   如果从一个变量向另一个变量复制基本类型的值，会在变量对象上创建一新值，然后把该值复制到新变量分配的位置上。看下例子：
    ```js
      var num1 = 5;
      var num2 = num1;
@@ -246,10 +247,10 @@
   但num2中5和num1中5是完全独立的，该值只是num1中5的一个副本。
   此后，这两个变量可以参与任何操作而不会相互影响。
 
-  如果从一个变量像另一个变量赋值引用类型的值，通用会储存在变量对象中的值赋值一份到位新变量分配的空间中。
+  如果从一个变量向另一个变量复制引用类型的值，通用会储存在变量对象中的值赋值一份到位新变量分配的空间中。
   不同的是，这个值的副本实际上，是一个指针，而这个指针指向存储在堆中的一个对象。
   赋值操作结束后，两个变量实际上将引用同一个对象。因此改变其中一个变量，就会影响另一个变量。
-  这只看下例子：
+  看下例子：
    ```js
      var obj1 = {
 
@@ -258,7 +259,7 @@
      obj1.name = 'wzx';
      alter(obj2.name) // wzx wzx   
   ```
-  通常在开发中我们不希望出现这样的问题，我们可以使用浅拷贝来解决这个问题。
+  通常在开发中我们不希望出现这样的问题，我们可以使用深浅浅拷贝来解决这个问题。后面会在高级技巧介绍深浅拷贝。
 
   ### 参数传递
   ES中所有函数的参数都是按值传递的。也就是说把函数外部的值复制给函数内部的参数，就和把一个值从一个变量复制到另一个变量一样。基本类型值的
@@ -446,9 +447,9 @@
   
   程序结束之前， ECStack 最底部永远有个 globalContext：
   ```js
-      ECStack = [
-        globalContext
-    ];
+  ECStack = [
+      globalContext
+  ];
   ```
   现在 JavaScript 遇到下面的这段代码了：
 
@@ -728,21 +729,21 @@
   3. 开始做准备工作:
     (1) 复制函数[[scope]]属性创建作用域链
     ```js
-      checkscopeContext = {
-          Scope: checkscope.[[scope]],
-      }
+    checkscopeContext = {
+        Scope: checkscope.[[scope]],
+    }
     ```
     (2) 用 arguments 创建活动对象，随后初始化活动对象，加入形参、函数声明、变量声明
     ```js
-      checkscopeContext = {
-          AO: {
-              arguments: {
-                  length: 0
-              },
-              scope2: undefined
-          }，
-          Scope: checkscope.[[scope]],
-      }
+    checkscopeContext = {
+        AO: {
+            arguments: {
+                length: 0
+            },
+            scope2: undefined
+        }，
+        Scope: checkscope.[[scope]],
+    }
     ```
     (3) 将活动对象压入 checkscope 作用域链顶端
 
@@ -818,39 +819,39 @@
       ];
     ```
   5. 开始做准备工作:
-      (1) 复制函数[[scope]]属性创建作用域链
-      ```js
-        checkscopeContext = {
-            Scope: checkscope.[[scope]],
-        }
-      ```
-      (2) 用 arguments 创建活动对象，随后初始化活动对象，加入形参、函数声明、变量声明
-      ```js
-        checkscopeContext = {
-            AO: {
-                arguments: {
-                    length: 0
-                },
-                scope: undefined,
-                f: reference to function f(){}
-            }，
-            Scope: checkscope.[[scope]],
-        }
-      ```
-      (3) 将活动对象压入 checkscope 作用域链顶端
-      ```js
-        checkscopeContext = {
-            AO: {
-                arguments: {
-                    length: 0
-                },
-                scope: undefined,
-                f: reference to function f(){}
-            }，
-            Scope: [AO, globalContext.VO],
-            this: undefined
-        }
-      ```
+    (1) 复制函数[[scope]]属性创建作用域链
+    ```js
+      checkscopeContext = {
+          Scope: checkscope.[[scope]],
+      }
+    ```
+    (2) 用 arguments 创建活动对象，随后初始化活动对象，加入形参、函数声明、变量声明
+    ```js
+      checkscopeContext = {
+          AO: {
+              arguments: {
+                  length: 0
+              },
+              scope: undefined,
+              f: reference to function f(){}
+          }，
+          Scope: checkscope.[[scope]],
+      }
+    ```
+    (3) 将活动对象压入 checkscope 作用域链顶端
+    ```js
+      checkscopeContext = {
+          AO: {
+              arguments: {
+                  length: 0
+              },
+              scope: undefined,
+              f: reference to function f(){}
+          }，
+          Scope: [AO, globalContext.VO],
+          this: undefined
+      }
+    ```
   6. 开始执行函数, 随着函数的执行，修改 AO 的属性值
     ```js
       checkscopeContext = {
@@ -885,15 +886,15 @@
   f 函数执行上下文被压入执行上下文栈。
   ```js
   ECStack = [
-      fContext,
-      globalContext
-    ];
+    fContext,
+    globalContext
+  ];
   ```
   7. 查找到 scope 的值，返回后函数执行完毕，函数上下文从执行上下文栈中弹出
   ```js
-    ECStack = [
-      globalContext
-    ];
+  ECStack = [
+    globalContext
+  ];
   ```
   
   ## 闭包
@@ -915,9 +916,9 @@
   }
   ```
   要理解闭包，必须先理解如何创建作用域链以及作用域链有什么作用的细节。
-  当某个函数被执行时，会创建一个执行环境以及相应的作用域链。然后使用agruments
-  和其他命名参数的值来初始化函数的活动对象。但在作用域中，外部函数的活动对象始终处于
-  第二位，外部函数的外部函数的活动对象处于第三位，直到作为作用域链终端的全局执行环境位置。
+  当某个函数被执行时，会创建一个执行环境以及相应的作用域链。
+  然后使用agruments和其他命名参数的值来初始化函数的活动对象。
+  但在作用域中，外部函数的活动对象始终处于第二位，外部函数的外部函数的活动对象处于第三位，直到作为作用域链终端的全局执行环境位置。
   来看下面的例子：
   ```js
    function compare(value1, value2) {
@@ -2001,6 +2002,7 @@
   3. 不能序列化函数
   4. 不能解决循环引用的对象
 
+  为了解决以上问题，再来看一版：
   ```js
   function deepCopy(obj) {
     if (typeof obj !== 'obj') return;
@@ -2013,6 +2015,7 @@
     return newObj;
   }
   ```
+  更加完善的拷贝可以看高级技巧中的从零实现jQuery的extend。
   ### 节流
 
   节流原理：触发一个事件，每隔一个时段只能触发一次。
@@ -3518,9 +3521,8 @@
   console.log(quickSort(6, 7, 3, 4, 1, 5, 9, 2, 8))
   ```
 
-  ### 如何写自己的 underscore
+  ### 如何写自己的工具库
   ```js
-  //   https://github.com/mqyqingfeng/Blog/issues/56
   (function() {
 
       var root = (typeof self == 'object' && self.self == self && self) ||
@@ -3789,3 +3791,629 @@
   ```js
   let nums = (...nums) => nums;
   ```
+
+  ### Promise
+  #### promise起源
+
+  回调：
+  ```js
+  doA( function(){
+      doB();
+
+      doC( function(){
+          doD();
+      } )
+
+      doE();
+  } );
+
+  doF();
+  ```
+  当然这是一种简化的形式，经过一番简单的思考，我们可以判断出执行的顺序为：
+  ```js
+  doA()
+  doF()
+  doB()
+  doC()
+  doE()
+  doD()
+  ```
+  实际的项目中，代码会更加杂乱。为了排查问题需要绕过很多碍眼的内容，排查问题的难度成倍增加。
+  这还不是最糟糕的，实际上在代码中还有各种各样的逻辑判断，比如在上面例子中，doD() 必须在 doC() 完成后才能完成。
+  如果doC() 执行失败并不可能重试 doC()或者直接转到其他错误处理函数中。
+  当我们将这些判断都加入到这个流程中，代码就会变得非常复杂。
+
+  回调地狱
+
+  回调地狱的示例：
+  ```js
+  var fs = require('fs');
+  var path = require('path');
+
+  function findLargest(dir, cb) {
+      // 读取目录下的所有文件
+      fs.readdir(dir, function(er, files) {
+          if (er) return cb(er);
+
+          var counter = files.length;
+          var errored = false;
+          var stats = [];
+
+          files.forEach(function(file, index) {
+              // 读取文件信息
+              fs.stat(path.join(dir, file), function(er, stat) {
+
+                  if (errored) return;
+
+                  if (er) {
+                      errored = true;
+                      return cb(er);
+                  }
+
+                  stats[index] = stat;
+
+                  // 事先算好有多少个文件，读完 1 个文件信息，计数减 1，当为 0 时，说明读取完毕，此时执行最终的比较操作
+                  if (--counter == 0) {
+
+                      var largest = stats
+                          .filter(function(stat) { return stat.isFile() })
+                          .reduce(function(prev, next) {
+                              if (prev.size > next.size) return prev
+                              return next
+                          })
+
+                      cb(null, files[stats.indexOf(largest)])
+                  }
+              })
+          })
+      })
+  }
+  ```
+
+  回调地狱的其他问题：
+
+  1. 难以复用
+
+  回调的顺序确定下来之后，某些环节很困难进行复用。
+
+  2. 堆栈信息被断开
+
+  JavaScript引擎维护了一个执行上下文栈。当函数执行的时候，会创建该函数的执行上下文压入栈中；执行完毕后，会将该执行上下文出栈。
+
+  如果在A函数中调用了B函数，会先将A函数的执行上下文压入栈中，再将B函数的执行上下文压入栈中。
+  当B函数执行完毕，将B函数执行上下文出栈；当A函数执行完毕后，将 A 函数执行上下文出栈。
+  如果中断代码执行，还可以检索完整的堆栈信息从中获取的信息。
+
+  可是异步回调函数并非如此，比如执行fs.readdir时会将回调函数加入任务队列中后继续执行。
+  直至主线程完成后，从任务队列中选择已经完成的任务加入栈中。
+  此时栈中只有这一个执行上下文，如果回调报错也无法获取调用该异步操作时的栈中信息。
+  此外，由于异步的缘故使用try catch语句也无法直接捕获错误。Promise也没有解决这个问题。
+
+  3. 借助外层变量
+
+  当多个异步同时进行，由于无法预期完成顺序，必须借助外层作用域的变量。
+  比如这里遍历读取文件信息，必须借助外层的 count、errored、stats 等。
+
+  缺点：
+  
+  （1）编写麻烦；
+
+  （2）如果忽略文件读取错误时，不会记录错误状态就接着读取其他文件，造成无谓的浪费；
+
+  （3）外层的变量，也可能被其它同一作用域的函数访问并且修改，容易造成误操作。
+
+  由于异步回调函数种种不利的原因，Promise便孕育而生，它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。
+  #### Promise含义
+  Promise是JavaScript中的一种异步解决方案，比传统的回调函数更加合理强大。
+
+  特点：
+  
+  1. 对象的状态不受外界的影响
+
+  Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。
+  只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。
+
+  2. 一旦状态改变，就不会再变，任何时候都会得到这个结果
+
+  Promise对象状态改变有两种可能：pending（进行中）到fulfilled（已成功）、pending（进行中）到rejected（已失败）。
+  只要这两种情况发生，状态就凝固了。如果状态发生改变，你再对Promise对象添加回调函数，会立即得到结果。
+
+  缺点：
+
+  1. 无法取消，Promise一旦新建就立即执行，无法中途取消。
+
+  2. 无法得知Promise内部抛出的错误，无法反映到外部。
+
+  3. 无法得知pedding状态时，进行到哪个阶段。
+
+  #### 基本用法
+
+  创建一个Promise实例的写法。
+
+  ```js
+  const promise = new Promise(function(resolve, reject) {
+    // ... some code
+    if (/* 异步操作成功 */){
+      resolve(value);
+    } else {
+      reject(error);
+    }
+  } )
+  ```
+
+  Promise对象接收一个函数作为参数，该函数的参数分别为resolve和reject。
+
+  1. resolve的作用是将Promise的状态从 pedding 过渡到 resolved。在异步操作成功时调用。
+
+  2. resolve的作用是将Promise的状态从 pedding 过渡到 reject。在失败时调用。
+
+  Promise实例生成以后，可以用`then`方法分别指定resolved状态和rejected状态的回调函数。
+
+  ```js
+  promise.then(function(value){
+    alter(value)
+  },function(error){
+    alter(error)
+  })
+  ```
+
+  `then`方法接收两个函数：
+
+  第一个是Promise对象的状态变为resolved时调用。
+
+  第二个是Promise对象的状态变为rejected时调用。（可选）
+
+  接下来看一个promise的例子
+
+  ```js
+   function timeout(ms) {
+     return new Promise(function(resolve, reject) {
+       setTimeout(resolve, ms, 'done');
+     })
+   }
+   timeout(1000).then(function(value) {
+     alter(value) // done
+   })
+  ```
+  上面代码中，timeout方法返回一个Promise实例，表示一段时间以后才会发生的结果。
+  过了指定的时间（ms参数）以后，Promise实例的状态变为resolved，就会触发then方法绑定的回调函数。
+
+  #### Promise.prototype.catch()
+
+  Promise.prototype.catch()方法是.then(null, rejection)或.then(undefined, rejection)的别名，用于指定发生错误时的回调函数。
+
+  ```js
+  getJSON('/posts.json').then(function(posts) {
+    // ...
+  }).catch(function(error) {
+    // 处理 getJSON 和 前一个回调函数运行时发生的错误
+    console.log('发生错误！', error);
+  })
+  ```
+  上面代码中，getJSON()方法返回一个 Promise 对象，如果该对象状态变为resolved，则会调用then()方法指定的回调函数；
+  如果异步操作抛出错误，状态就会变为rejected，就会调用catch()方法指定的回调函数，处理这个错误。
+  另外，then()方法指定的回调函数，如果运行中抛出错误，也会被catch()方法捕获。
+
+  ```js
+  const promise = new Promise(function(resolve, reject) {
+    resolve('ok');
+    throw new Error('test');
+  });
+
+  promise
+    .then(function(value) { console.log(value) })
+    .catch(function(error) { console.log(error) });
+  // ok
+  ```
+  上面代码中，Promise 在resolve语句后面，再抛出错误，不会被捕获，等于没有抛出。因为 Promise 的状态一旦改变，就永久保持该状态，不会再变了。
+
+  ```js
+  getJSON('/post/1.json').then(function(post) {
+    return getJSON(post.commentURL);
+  }).then(function(comments) {
+    // some code
+  }).catch(function(error) {
+    // 处理前面三个Promise产生的错误
+  });
+  ```
+  Promise 对象的错误具有“冒泡”性质，会一直向后传递，直到被捕获为止。
+  也就是说，错误总是会被下一个catch语句捕获。上面代码中，一共有三个 Promise 对象：一个由getJSON()产生，两个由then()产生。
+  它们之中任何一个抛出的错误，都会被最后一个catch()捕获。
+
+  #### Promise.prototype.finally() 
+
+  finally()方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。
+
+  ```js
+  promise
+  .then(result => {···})
+  .catch(error => {···})
+  .finally(() => {···});
+  ```
+
+  #### Promise.all()
+  
+  Promise.all()方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。
+
+  ```js
+  const p = Promise.all([p1, p2, p3]);
+  ```
+  p1、p2、p3都是 Promise 实例
+
+  p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled
+
+  只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected
+
+  #### Promise.race()
+
+  Promise.race()方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例。
+
+  ```js
+  const p = Promise.race([p1, p2, p3]);
+  ```
+  只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。
+  那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。
+
+  #### Promise.allSettled()
+  只有等到所有这些参数实例都返回结果，不管是fulfilled还是rejected，包装实例才会结束。
+
+  ```js
+  const promises = [
+    fetch('/api-1'),
+    fetch('/api-2'),
+    fetch('/api-3'),
+  ];
+
+  await Promise.allSettled(promises);
+  removeLoadingIndicator();
+  ```
+  上面代码对服务器发出三个请求，等到三个请求都结束，不管请求成功还是失败，加载的滚动图标就会消失。
+
+  #### Promise.any()
+  只要参数实例有一个变成fulfilled状态，包装实例就会变成fulfilled状态。
+  如果所有参数实例都变成rejected状态，包装实例就会变成rejected状态。
+
+  #### Promise.resolve()
+
+  有时需要将现有对象转为 Promise 对象，Promise.resolve()方法就起到这个作用。
+
+  ```js
+  const jsPromise = Promise.resolve($.ajax('/whatever.json'));
+  ```
+
+  #### 应用
+
+  加载图片
+
+  ```js
+  const preloadImage = function (path) {
+    return new Promise(function (resolve, reject) {
+      const image = new Image();
+      image.onload  = resolve;
+      image.onerror = reject;
+      image.src = path;
+    });
+  };
+  ```
+  Generator 函数与 Promise 的结合
+  
+  ```js
+  function getFoo () {
+    return new Promise(function (resolve, reject){
+      resolve('foo');
+    });
+  }
+
+  const g = function* () {
+    try {
+      const foo = yield getFoo();
+      console.log(foo);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  function run (generator) {
+    const it = generator();
+
+    function go(result) {
+      if (result.done) return result.value;
+
+      return result.value.then(function (value) {
+        return go(it.next(value));
+      }, function (error) {
+        return go(it.throw(error));
+      });
+    }
+
+    go(it.next());
+  }
+
+  run(g);
+  ```
+
+  #### Promise 模拟实现
+
+  #### 链式调用
+  
+  根据前面提到的promise概念以及例子，分析 Promise链式调用的实现：
+
+  一、拥有三种状态（1）pendding（2）resolve (3) reject
+
+  二、Promise 是一个对象，new申明。用原型继承的编写。
+
+  三、参数是一个函数，该函数还有两个自带的函数参数resolve，reject。
+
+  1. resolve 是一个微任务，能将状态变成FULFILLED，将value传递给then方法的参数
+
+  2. reject 是一个微任务，能将状态变成REJECTED。
+
+  四、能够通过resolve或reject，将参数传递给then方法。
+  ```js
+  //定义三种状态
+  const PENDING = "pending";
+  const FULFILLED = "fulfilled";
+  const REJECTED = "rejected";
+
+  function Promise2(fn) {
+    this.value = null;
+    this.error = null; 
+    // 状态
+    this.status = PENDING;
+    // then的中成功的回调函数
+    this.onFulfilled = null;
+    // then的中失败的回调函数
+    this.onRejected = null;
+    const resolve = (value) => {
+      if (this.status === PENDING) return;
+      setTimeout(() => {
+        this.status = FULFILLED;
+        this.value = value;
+        // 执行then中的回调函数，并传值。
+        this.onFulfilled(value)
+      })
+    }
+    const reject = (error) => {
+      if (this.status === PENDING) return;
+      setTimeout(() => {
+        this.status = REJECTED;
+        this.error = error;
+        // 执行then中的回调函数，并传值。
+        this.onRejected(value)
+      })
+    }
+    // 参数是一个函数，该函数两个自带的函数参数resolve，reject。
+    fn(resolve, reject)
+  }
+  Promise2.prototype.then = function(onFulfilled, onRejected) {
+    if (this.status === PENDING) {
+      // 执行第一轮宏任务，将then中的回调赋值，用与执行微任务 resolve 时调用。
+      this.onFulfilled = onFulfilled;
+      this.onRejected = onRejected;
+    } else if (this.status === FULFILLED) {
+      //如果状态是fulfilled，直接执行成功回调，并将成功值传入
+      onFulfilled(this.value)
+    } else {
+      //如果状态是rejected，直接执行失败回调，并将失败原因传入
+      onRejected(this.error)
+    }
+  }
+  ```
+  目前这一版的 Promise, 存在一些问题的.
+  比如下面这样:
+  
+  ```js
+  let promise1 = new Promise2((resolve, reject) => {
+    fs.readFile('./001.txt', (err, data) => {
+      if(!err){
+        resolve(data);
+      }else {
+        reject(err);
+      }
+    })
+  });
+
+  let x1 = promise1.then(data => {
+    console.log("第一次展示", data.toString());    
+  });
+
+  let x2 = promise1.then(data => {
+    console.log("第二次展示", data.toString());    
+  });
+
+  let x3 = promise1.then(data => {
+    console.log("第三次展示", data.toString());    
+  });
+  ```
+  只能执行一个回调函数。
+
+  需要将 onFulfilled 和 onRejected 改为数组，调用 resolve 时将其中的方法拿出来一一执行即可。
+
+  ```js
+  Promise2.prototype.then = function(onFulfilled, onRejected) {
+    if (this.status === PENDING) {
+      this.onFulfilledCallbacks.push(onFulfilled);
+      this.onRejectedCallbacks.push(onRejected);
+    } else if (this.status === FULFILLED) {
+      onFulfilled(this.value);
+    } else {
+      onRejected(this.error);
+    }
+    return this;
+  }
+  ```
+  接下来将 resolve 和 reject 方法中执行回调的部分进行修改：
+
+  ```js
+  // resolve 中
+  this.onFulfilledCallbacks.forEach((callback) => callback(this.value));
+  // reject 中
+  this.onRejectedCallbacks.forEach((callback) => callback(this.error));
+  ```
+
+  依然存在另外一个问题.
+  ```js
+  let readFilePromise = (filename) => {
+    return new Promise2((resolve, reject) => {
+      resolve(filename)
+    })
+  }
+  readFilePromise('./001.txt').then(data => {
+    console.log(data);
+    return readFilePromise('./002.txt');
+  }).then(data => {
+    console.log(data);
+  })
+  // 001.txt的内容
+  // 001.txt的内容
+  ```
+  问题出在这里:
+  ```js
+  Promise2.prototype.then = function(onFulfilled, onRejected) {
+    //...
+    return this;
+  }
+  ```
+  这么写每次返回的都是第一个 Promise。then 函数当中返回的第二个 Promise 直接被无视了。
+  
+  接着改版
+  ```js
+  Promise2.prototype.then = function (onFulfilled, onRejected) {
+    let bridgePromise;
+    if (this.status === PENDING) {
+      return bridgePromise = new Promise2((resolve, reject) => {
+        this.onFulfilledCallbacks.push((value) => {
+          try {
+            // 看到了吗？要拿到 then 中回调返回的结果。
+            let x = onFulfilled(value);
+            resolve(x);
+          } catch (e) {
+            reject(e);
+          }
+        });
+        this.onRejectedCallbacks.push((error) => {
+          try {
+            let x = onRejected(error);
+            resolve(x);
+          } catch (e) {
+            reject(e);
+          }
+        });
+      }.bind(this));
+    }
+    //...
+  }
+  ```
+  但是这段程度还是存在一些问题:
+
+  1. 首先 then 中的两个参数不传的情况并没有处理，
+  
+  2. 假如 then 中的回调执行后返回的结果(也就是上面的x)是一个 Promise, 直接给 resolve 了。
+
+  先对参数不传的情况做判断:
+
+  ```js
+  // 成功回调不传给它一个默认函数
+  onFulfilled = typeof onFulfilled === "function" ? onFulfilled : value => value;
+  // 对于失败回调直接抛错
+  onRejected = typeof onRejected === "function" ? onRejected : error => { throw error };
+  ```
+
+  然后对返回Promise的情况进行处理:
+
+  ```js
+  function resolvePromise(bridgePromise, x, resolve, reject) {
+    //如果x是一个promise
+    if (x instanceof Promise2) {
+      // 拆解这个 promise ，直到返回值不为 promise 为止
+      if (x.status === PENDING) {
+        x.then(y => {
+          resolvePromise(bridgePromise, y, resolve, reject);
+        }, error => {
+          reject(error);
+        });
+      } else {
+        x.then(resolve, reject);
+      }
+    } else {
+      // 非 Promise 的话直接 resolve 即可
+      resolve(x);
+    }
+  }
+  ```
+  然后在 then 的方法实现中作如下修改:
+
+  ```js
+  resolve(x)  ->  resolvePromise(bridgePromise, x, resolve, reject);
+  ```
+  实现一下当 Promise 状态不为 PENDING 时的逻辑。
+
+  成功状态下调用then：
+
+  ```js
+  if (this.status === FULFILLED) {
+    return bridgePromise = new Promise((resolve, reject) => {
+      try {
+        // 状态变为成功，会有相应的 self.value
+        let x = onFulfilled(this.value);
+        // 暂时可以理解为 resolve(x)，后面具体实现中有拆解的过程
+        resolvePromise(bridgePromise, x, resolve, reject);
+      } catch (e) {
+        reject(e);
+      }
+    })
+  }
+  ```
+  失败状态下调用then：
+
+  ```js
+  if (this.status === REJECTED) {
+    return bridgePromise = new MyPromise((resolve, reject) => {
+      try {
+        // 状态变为失败，会有相应的 self.error
+        let x = onRejected(this.error);
+        resolvePromise(bridgePromise, x, resolve, reject);
+      } catch (e) {
+        reject(e);
+      }
+    });
+  }
+  ```
+  Promise A+中规定成功和失败的回调都是微任务，由于浏览器中 JS 触碰不到底层微任务的分配。
+  可以直接拿 setTimeout(属于宏任务的范畴) 来模拟，用 setTimeout将需要执行的任务包裹。
+  大家注意一下，其实并不是真正的微任务。
+
+  ```js
+  if (self.status === FULFILLED) {
+    return bridgePromise = new MyPromise((resolve, reject) => {
+      setTimeout(() => {
+        //...
+      })
+  }
+  ```
+  ```js
+    if (self.status === REJECTED) {
+      return bridgePromise = new MyPromise((resolve, reject) => {
+        setTimeout(() => {
+          //...
+        })
+    }
+  ```
+  ```js
+    // 001.txt的内容
+    // 002.txt的内容
+  ```
+  可以看到，已经可以顺利地完成链式调用。
+
+  #### 错误捕获及冒泡机制分析
+
+  现在来实现 catch 方法:
+
+  ```js
+  Promise2.prototype.catch = function (onRejected) {
+    return this.then(null, onRejected);
+  }
+  ```
+  catch 是 then 方法的语法糖。
+
+  至此，Promise 三大法宝: 回调函数延迟绑定、回调返回值穿透和错误冒泡。
