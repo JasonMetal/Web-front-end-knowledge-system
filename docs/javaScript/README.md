@@ -1,5 +1,7 @@
+  # 基础
   ## 数据类型
-   ES标准规定了8种数据类型，其中有7种简单数据类型：`Undefind`、`Null`、`Boolean`、`Number`、`String`、`Symbol`、`BigInt`。以及1种复杂数据类型：`Object`
+   ES标准规定了8种数据类型，其中有7种简单数据类型：`Undefind`、`Null`、`Boolean`、`Number`、`String`、`Symbol`、`BigInt`。
+   以及1种复杂数据类型：`Object`
 
    ### Undefined 类型
    Undefined 类型只有一个值，即特殊的 undefined。未初始化的变量会自动被赋予undefined值，但是显示地初始化变量依然是明智的选择。
@@ -50,27 +52,27 @@
    ***浮点数转二进制***
 
    1020二进制：1111111100
-   ```js
+   ```
    1020 = 1020 = 1 * 2^9 + 1 * 2^8 + 1 * 2^7 
    + 1 * 2^6 + 1 * 2^5 + 1 * 2^4 + 1 * 2^3 + 1 * 2^2 + 0 * 2^1 + 0 * 2^0
    ```
 
    0.75二进制
-   ```js
-      0.75 = a * 2^-1 + b * 2^-2 + c * 2^-3 + d * 2^-4 + ...
+   ```
+   0.75 = a * 2^-1 + b * 2^-2 + c * 2^-3 + d * 2^-4 + ...
    ```
    因为使用的是二进制，abcd……的值的是 0 或 1。两边不停的 * 2 算出，解法如下：
-   ```js
-      0.75 = a * 2^-1 + b * 2^-2 + c * 2^-3 + d * 2^-4...
-      1 + 0.5 = a * 2^0 + b * 2^-1 + c * 2^-2 + d * 2^-3... (所以 a = 1)
-      0.5 = b * 2^-1 + c * 2^-2 + d * 2^-3...
-      1 + 0 = b * 2^0 + c * 2^-2 + d * 2^-3... (所以 b = 1)
+   ```
+    0.75 = a * 2^-1 + b * 2^-2 + c * 2^-3 + d * 2^-4...
+    1 + 0.5 = a * 2^0 + b * 2^-1 + c * 2^-2 + d * 2^-3... (所以 a = 1)
+    0.5 = b * 2^-1 + c * 2^-2 + d * 2^-3...
+    1 + 0 = b * 2^0 + c * 2^-2 + d * 2^-3... (所以 b = 1)
   ```
    0.75 用二进制表示就是 0.ab，也就是 0.11
    
    0.1二进制
 
-   ```js
+   ```
     0.1 = a * 2^-1 + b * 2^-2 + c * 2^-3 + d * 2^-4 + ...
     0 + 0.2 = a * 2^0 + b * 2^-1 + c * 2^-2 + ...   (a = 0)
     0 + 0.4 = b * 2^0 + c * 2^-1 + d * 2^-2 + ...   (b = 0)
@@ -89,13 +91,13 @@
   IEEE754标准认为，浮点数 (Value)可表示为 `Value = sign * exponent * fraction`，简单理解就是科学计数法。
   
   比如 -1020：
-  ```js
+  ```
     用科学计数法表示:  -1 * 10^3 * 1.02。
     sign: -1，exponent: 10^3，fraction: 1.02。
   ```
   再比如：以 0.1 的二进制 0.00011001100110011……。
 
-  ```js
+  ```
     用科学计数法表示：1 * 2^-4 * 1.1001100110011…
     sign：1，exponent：2^-4，fraction：1.1001100110011……
   ```
@@ -113,15 +115,15 @@
   直接存后面的 xxxxx 好了，这也就是 Fraction 的部分。
 
   `2^E`: 
-  ```js
+  ```
   1020.75:
-    二进制数: 1111111100.11，
-    二进制科学计数法： 1 * 1.11111110011 * 2^9，E 的值就是 9，
+  二进制数: 1111111100.11，
+  二进制科学计数法： 1 * 1.11111110011 * 2^9，E 的值就是 9，
   ```
 
-  ```js
-    0.1: 
-    二进制科学计数法: 1 * 1.1001100110011…… * 2^-4，E 的值就是 -4，
+  ```
+  0.1: 
+  二进制科学计数法: 1 * 1.1001100110011…… * 2^-4，E 的值就是 -4，
   ```
 
 
@@ -170,7 +172,7 @@
   两个阶码不同，先调整, 小阶对大阶
 
   ```
-    0.1 -4 调到 -3: 0.11001100110011…… * 2^-3
+  0.1 -4 调到 -3: 0.11001100110011…… * 2^-3
   ```
 
   **尾数运算**
@@ -184,18 +186,18 @@
 
   **规格化**
   ```
-      1.0011001100110011001100110011001100110011001100110011(1) * 2^-2
+  1.0011001100110011001100110011001100110011001100110011(1) * 2^-2
   ```
   **舍入处理**
 
   括号里的 1 超出了范围，要被舍弃（0 舍 1 入）。
   ```
-    1.0011001100110011001100110011001100110011001100110100 * 2^-2
+  1.0011001100110011001100110011001100110011001100110100 * 2^-2
   ```
 
   **结果存成 64 位**
   ```
-      0 01111111101 0011001100110011001100110011001100110011001100110100
+  0 01111111101 0011001100110011001100110011001100110011001100110100
   ```
   转换为10进制数：0.30000000000000004440892098500626
 
@@ -3616,7 +3618,153 @@
       })()
       _('hello').reverse()
   ```
+  ## 执行机制
+  
+  本节讲述V8的执行机制，来理解JavaScript的执行机制。这是能够帮助我们理解很多上层应用，包括Babel、ESlint、前端框架的底层机制。
 
+  一段JavaScript代码放在V8中是如何的执行？机器是读不懂JavaScript代码的，只能理解特点的机器码。
+  如果要让JavaScript代码在机器上运行，就必须将JavaScript代码编译成机器码。由于JavaScript属于解释型语言，解释器会对原代码做如下分析：
+
+  1. 通过词法分析和语法分析生成 AST(抽象语法树)
+
+  2. 生成字节码
+
+  然后解释器根据字节码来执行程序。但 JS 整个执行的过程其实会比这个更加复杂，接下来就来一一地拆解。
+
+  ### 生成AST
+
+  生成 AST 分为两步：词法分析和语法分析。
+
+  词法分析即分词，它的工作就是将一行行的代码分解成一个个token。 比如下面一行代码:
+
+  ```js
+  const name = 'wzx'
+  ```
+  其中会把句子分解成四个部分:
+
+  关键字：`const` 、 变量名：`name`、赋值：`=` 、 字符串：`'wzx'`;
+
+  即解析成了四个token，这就是词法分析的作用。
+
+  接下来语法分析阶段，将生成的这些 token 数据，根据一定的语法规则转化为AST。举个例子:
+
+  ```js
+    let name = 'sanyuan'
+    console.log(name)
+  ```
+  最后生成的 AST 是这样的:
+
+  ![An image](./ast.jpg)
+
+  当生成了 AST 之后，编译器/解释器后续的工作都要依靠 AST 而不是源代码。生成 AST 后，接下来会生成执行上下文。
+
+  ### 生成字节码
+
+  生成AST后，通过V8解释器(Ignition)来生成字节码。但`字节码`并不能直接让机器运行，还需要转成机器码。
+  V8早期直接把 AST 转换成机器码，但是造成严重的内存占用问题。
+
+  **字节码概念**
+  字节码是介于AST与机器码之间的一种代码，但与特定类型的机器码无关，字节码需要通过解释器将其转成机器码。
+
+  ### 执行代码
+
+  在代码执行阶段，V8会将重复出现的代码标记为`热点代码`，编译成机器码保存起来，这个用来编译的工具就是V8的编译器。
+  在这样的机制下，代码执行效率得到提高。这种编译机制叫作`即时编译`，也就是我们常听到的`JIT`。
+
+  总结一下：
+
+  1. 首先通过词法分析和语法生成`AST`
+
+  2. 接着将 `AST` 转成 字节码
+
+  3. 由解释器逐行执行字节码，遇到重复代码启动编译器进行编译成对应的机器码并保持。
+
+  ## 浏览器中的 Event Loop
+  浏览器事件循环中有两种队列：宏任务队列和微任务队列。
+
+  常见的宏任务队列 比如：setTimeout、setInterval、script（整体代码）、 I/O 操作、UI 渲染等。
+
+  常见的微任务队列 比如: new Promise().then(回调)、MutationObserver(html5新特性) 等。
+
+  ### Event Loop 过程
+
+  干讲理论不容易理解，直接以一个例子开始:
+
+  ```js
+  console.log('start');
+  setTimeout(() => {
+    console.log('timeout');
+  })
+  Promise.resolve().then(() => {
+    console.log('resolve');
+  })
+  console.log('end')
+  ```
+  1.  整体作为一个宏任务进来，对于同步代码直接压入执行栈, 因此先打印 `start`和`end`;
+
+  2. setTimeout作为宏任务放入宏任务队列
+
+  3. Promise.then作为一个为微任务放入到微任务队列
+
+  4. 当本次宏任务结束，检查微任务队列是否有任务，发现一个Promise.then, 执行。
+
+  5. 接着进入下一个宏任务————setTimeout,执行。
+
+  因此最后的顺序是:
+
+  ```
+   start
+   end
+   resolve
+   timeout
+  ```
+  这样就直观地感受到了浏览器环境下 EventLoop 的执行流程。
+  不过，这只是其中的一部分情况，接下来我们来做一个更完整的总结。
+  
+  1. 一开始以整段脚本为第一个宏任务执行
+
+  2. 执行过程中同步代码直接执行，**宏任务**进入宏任务队列，**微任务**进入微任务队列
+
+  3. 当宏任务执行完退出队列，检查微任务队列，如果有任务则执行，直到微任务队列为空。
+
+  4. 执行浏览器UI 线程的渲染工作。
+
+  5. 检查是否有 web Worker 任务，有则执行。
+
+  6. 执行队首新的宏任务，回到2，依此循环，直到宏任务和微任务队列都为空
+
+  练习题
+
+  ```js
+  console.log('1');
+
+  setTimeout(function() {
+      console.log('2');
+      new Promise(function(resolve) {
+          console.log('4');
+          resolve();
+      }).then(function() {
+          console.log('5')
+      })
+  })
+  new Promise(function(resolve) {
+      console.log('7');
+      resolve();
+  }).then(function() {
+      console.log('8')
+  })
+
+  setTimeout(function() {
+      console.log('9');
+      new Promise(function(resolve) {
+          console.log('11');
+          resolve();
+      }).then(function() {
+          console.log('12')
+      })
+  })
+  // 1 7 8 2 4 5 9 11 12
+  ```
   ## ES6
 
   ### let 和 const
@@ -4417,3 +4565,623 @@
   catch 是 then 方法的语法糖。
 
   至此，Promise 三大法宝: 回调函数延迟绑定、回调返回值穿透和错误冒泡。
+
+  ### Generator
+
+  #### 基本概念
+  Generator（生成器） 是ES6引入的一种异步编程方案。
+
+  Generator 函数有多种理解角度。语法上，首先可以把它理解成，Generator 函数是一个状态机，封装了多个内部状态。
+
+  执行 Generator 函数会返回一个遍历器对象，也就是说，Generator 函数除了状态机，还是一个遍历器对象生成函数。
+  返回的遍历器对象，可以依次遍历 Generator 函数内部的每一个状态。
+
+  形式上，Generator 函数是一个普通函数，但是有两个特征。一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield表达式，定义不同的内部状态（yield在英语里的意思就是“产出”）。
+
+  ```js
+  function* helloWorldGenerator() {
+    yield 'hello';
+    yield 'world';
+    return 'ending';
+  }
+
+  var hw = helloWorldGenerator();
+  ```
+  下一步，必须调用遍历器对象的next方法，使得指针移向下一个状态。
+  也就是说，每次调用next方法，内部指针就从函数头部或上一次停下来的地方开始执行，直到遇到下一个yield表达式（或return语句）为止。
+  换言之，Generator 函数是分段执行的，yield表达式是暂停执行的标记，而next方法可以恢复执行。
+  ```js
+  hw.next()
+  // { value: 'hello', done: false }
+
+  hw.next()
+  // { value: 'world', done: false }
+
+  hw.next()
+  // { value: 'ending', done: true }
+
+  hw.next()
+  // { value: undefined, done: true }
+  ```
+  总结一下，调用 Generator 函数，返回一个遍历器对象，代表 Generator 函数的内部指针。
+  以后，每次调用遍历器对象的next方法，就会返回一个有着value和done两个属性的对象。
+  value属性表示当前的内部状态的值，是yield表达式后面那个表达式的值；done属性是一个布尔值，表示是否遍历结束。
+
+  #### yield* 表达式
+
+  当一个生成器要调用另一个生成器时，使用 yield* 就变得十分方便。比如下面的例子:
+
+  ```js
+  function* gen1() {
+      yield 1;
+      yield 4;
+  }
+  function* gen2() {
+      yield 2;
+      yield 3;
+  }
+  ```
+  我们想要按照1234的顺序执行，如何来做呢？
+
+  在 gen1 中，修改如下:
+
+  ```js
+  function* gen1() {
+      yield 1;
+      yield* gen2();
+      yield 4;
+  }
+  ```
+  这样修改之后，之后依次调用next即可。
+
+  #### Generator 与协程
+
+  协程（coroutine）是一种程序运行的方式，可以理解成“协作的线程”或“协作的函数”。
+  协程既可以用单线程实现，也可以用多线程实现。前者是一种特殊的子例程，后者是一种特殊的线程。
+
+  **（1）协程与子例程的差异**
+
+  传统的“子例程”（subroutine）采用堆栈式“后进先出”的执行方式，只有当调用的子函数完全执行完毕，才会结束执行父函数。
+  协程与其不同，多个线程（单线程情况下，即多个函数）可以并行执行，但是只有一个线程（或函数）处于正在运行的状态，其他线程（或函数）都处于暂停态（suspended），线程（或函数）之间可以交换执行权。
+  也就是说，一个线程（或函数）执行到一半，可以暂停执行，将执行权交给另一个线程（或函数），等到稍后收回执行权的时候，再恢复执行。这种可以并行执行、交换执行权的线程（或函数），就称为协程。
+
+  从实现上看，在内存中，子例程只使用一个栈（stack），而协程是同时存在多个栈，但只有一个栈是在运行状态，也就是说，协程是以多占用内存为代价，实现多任务的并行。
+
+  **（2）协程与普通线程的差异**
+
+  不难看出，协程适合用于多任务运行的环境。
+  在这个意义上，它与普通的线程很相似，都有自己的执行上下文、可以分享全局变量。
+  它们的不同之处在于，同一时间可以有多个线程处于运行状态，但是运行的协程只能有一个，其他协程都处于暂停状态。
+  此外，普通的线程是抢先式的，到底哪个线程优先得到资源，必须由运行环境决定，但是协程是合作式的，执行权由协程自己分配。
+
+  由于 JavaScript 是单线程语言，只能保持一个调用栈。
+  引入协程以后，每个任务可以保持自己的调用栈。
+  这样做的最大好处，就是抛出错误的时候，可以找到原始的调用栈。
+  不至于像异步操作的回调函数那样，一旦出错，原始的调用栈早就结束。
+
+  Generator 函数是 ES6 对协程的实现，但属于不完全实现。
+  Generator 函数被称为“半协程”（semi-coroutine），意思是只有 Generator 函数的调用者，才能将程序的执行权还给 Generator 函数。
+  如果是完全执行的协程，任何函数都可以让暂停的协程继续执行。
+
+  如果将 Generator 函数当作协程，完全可以将多个需要互相协作的任务写成 Generator 函数，它们之间使用yield表达式交换控制权。
+
+  #### Generator 与上下文
+
+  JavaScript 代码运行时，会产生全局的上下文环境，包含当前所有的变量和对象。
+  然后，执行函数时又会在当前上下文环境的上层，产生一个函数运行的上下文，变成
+  当前上下文，由此形成一个上下文环境的堆栈（context stack）。
+
+  这个堆栈是“先进后出”的数据结构，最后产生的上下文环境在最上层，执行结束后先退出堆栈
+  然后再执行完成它下层的上下文，直至所有代码执行完成，堆栈清空。
+
+  Generator不是这样，它执行产生执行上下文，一旦遇到yield命令，就会暂时退出堆栈，但不会消失，
+  里面所有的变量都会冻结当前状态。等到对它执行next命令后加入堆栈，冻结的变量和对象恢复。
+  
+  ```js
+  function* gen() {
+    yield 1;
+    return 2;
+  }
+
+  let g = gen();
+
+  console.log(
+    g.next().value,
+    g.next().value,
+  );
+  ```
+  上面代码中，第一次执行g.next()时，Generator 函数gen的上下文会加入堆栈，即开始运行gen内部的代码。
+  等遇到yield 1时，gen上下文退出堆栈，内部状态冻结。第二次执行g.next()时，gen上下文重新加入堆栈，变成当前的上下文，重新恢复执行。
+
+  ####  Generator 的自执行
+
+  **单个异步任务**
+  ```js
+  var fetch = require('node-fetch');
+
+  function* gen(){
+      var url = 'https://api.github.com/users/github';
+      var result = yield fetch(url);
+      console.log(result.bio);
+  }
+  ```
+  为了获得最终的执行结果，你需要这样做：
+
+  ```js
+  var g = gen();
+  var result = g.next();
+
+  result.value.then(function(data){
+      return data.json();
+  }).then(function(data){
+      g.next(data);
+  });
+  ```
+  首先执行 Generator 函数，获取遍历器对象。
+
+  然后使用 next 方法，执行异步任务的第一阶段，即 fetch(url)。
+
+  注意，由于 fetch(url) 会返回一个 Promise 对象，所以 result 的值为：
+
+  ```
+  { value: Promise { <pending> }, done: false }
+  ```
+  最后为这个 Promise 对象添加一个 then 方法，先将其返回的数据格式化(data.json())，
+  再调用 g.next，将获得的数据传进去，由此可以执行异步任务的第二阶段，代码执行完毕。
+
+  **多个异步任务**
+  ```js
+  var fetch = require('node-fetch');
+
+  function* gen() {
+      var r1 = yield fetch('https://api.github.com/users/github');
+      var r2 = yield fetch('https://api.github.com/users/github/followers');
+      var r3 = yield fetch('https://api.github.com/users/github/repos');
+
+      console.log([r1.bio, r2[0].login, r3[0].full_name].join('\n'));
+  }
+  ```
+  为了获得最终的执行结果：
+
+  ```js
+  var g = gen();
+  var result1 = g.next();
+
+  result1.value.then(function(data){
+      return data.json();
+  })
+  .then(function(data){
+      return g.next(data).value;
+  })
+  .then(function(data){
+      return data.json();
+  })
+  .then(function(data){
+      return g.next(data).value
+  })
+  .then(function(data){
+      return data.json();
+  })
+  .then(function(data){
+      g.next(data)
+  });
+  ```
+  其实，利用递归，可以这样写：
+  ```js
+  function run(gen) {
+      var g = gen();
+
+      function next(data) {
+          var result = g.next(data);
+
+          if (result.done) return;
+
+          result.value.then(function(data) {
+              return data.json();
+          }).then(function(data) {
+              next(data);
+          });
+
+      }
+
+      next();
+  }
+
+  run(gen);
+  ```
+  其中的关键就是 yield 的时候返回一个 Promise 对象，给这个 Promise 对象添加 then 方法，
+  当异步操作成功时执行 then 中的 onFullfilled 函数，onFullfilled 函数中又去执行 g.next。
+  从而让 Generator 继续执行，然后再返回一个 Promise，再在成功时执行 g.next，然后再返回……
+
+  **启动器函数**
+
+  在 run 这个启动器函数中，then 函数中将数据格式化 data.json()。
+  在更广泛的情况下，yield 直接跟一个 Promise，而非一个 fetch 函数返回的 Promise。
+  所以为了更具备通用性，修改为：
+
+  ```js
+  var fetch = require('node-fetch');
+
+  function* gen() {
+      var r1 = yield fetch('https://api.github.com/users/github');
+      var json1 = yield r1.json();
+      var r2 = yield fetch('https://api.github.com/users/github/followers');
+      var json2 = yield r2.json();
+      var r3 = yield fetch('https://api.github.com/users/github/repos');
+      var json3 = yield r3.json();
+
+      console.log([json1.bio, json2[0].login, json3[0].full_name].join('\n'));
+  }
+
+  function run(gen) {
+      var g = gen();
+
+      function next(data) {
+          var result = g.next(data);
+
+          if (result.done) return;
+
+          result.value.then(function(data) {
+              next(data);
+          });
+
+      }
+
+      next();
+  }
+
+  run(gen);
+  ```
+  **回调函数**
+
+  yield 后一定要跟着一个 Promise 对象才能保证 Generator 的自动执行吗？如果只是一个回调函数呢？来看个例子：
+
+  首先来模拟一个普通的异步请求：
+  ```js
+  function fetchData(url, cb) {
+      setTimeout(function(){
+          cb({status: 200, data: url})
+      }, 1000)
+  }
+  ```
+  将这种函数改造成:
+  ```js
+  function fetchData(url) {
+      return function(cb){
+          setTimeout(function(){
+              cb({status: 200, data: url})
+          }, 1000)
+      }
+  }
+  ```
+  对于这样的 Generator 函数：
+
+  ```js
+  function* gen() {
+      var r1 = yield fetchData('https://api.github.com/users/github');
+      var r2 = yield fetchData('https://api.github.com/users/github/followers');
+
+      console.log([r1.data, r2.data].join('\n'));
+  }
+  var g = gen();
+
+  var r1 = g.next();
+
+  r1.value(function(data) {
+      var r2 = g.next(data);
+      r2.value(function(data) {
+          g.next(data);
+      });
+  });
+  ```
+  利用递归, 将其改造为：
+  ```js
+  function run(gen) {
+      var g = gen();
+
+      function next(data) {
+          var result = g.next(data);
+
+          if (result.done) return;
+
+          result.value(next);
+      }
+
+      next();
+  }
+
+  run(gen);
+  ```
+  **run**
+  由此可以看到 Generator 函数的自动执行需要一种机制，即当异步操作有了结果，能够自动交回执行权。
+
+  而两种方法可以做到这一点。
+
+  （1）回调函数。将异步操作进行包装，暴露出回调函数，在回调函数里面交回执行权。
+
+  （2）Promise 对象。将异步操作包装成 Promise 对象，用 then 方法交回执行权。
+
+  在两种方法中各有 run 启动器函数，需要将两种方式结合写一个通用的 run 函数，尝试一下：
+  ```js
+  // 第一版
+  function run(gen) {
+      var gen = gen();
+
+      function next(data) {
+          var result = gen.next(data);
+          if (result.done) return;
+
+          if (isPromise(result.value)) {
+              result.value.then(function(data) {
+                  next(data);
+              });
+          } else {
+              result.value(next)
+          }
+      }
+
+      next()
+  }
+
+  function isPromise(obj) {
+      return 'function' == typeof obj.then;
+  }
+
+  module.exports = run;
+  ```
+  其实实现的很简单，判断 result.value 是否是 Promise，是就添加 then 函数，不是就直接执行。
+
+  **return Promise**
+
+  现在有一个问题需要思考，如何获得 Generator 函数的返回值呢？又如果 Generator 函数中出现了错误，就比如 fetch 了一个不存在的接口，这个错误该如何捕获呢？
+
+  这很容易让人想到 Promise，如果这个启动器函数返回一个 Promise，就可以给这个 Promise 对象添加 then 函数。
+  当所有的异步操作执行成功后执行 onFullfilled 函数，如果有任何失败，就执行 onRejected 函数。
+
+  ```js
+  // 第二版
+  function run(gen) {
+      var gen = gen();
+
+      return new Promise(function(resolve, reject) {
+
+          function next(data) {
+              try {
+                  var result = gen.next(data);
+              } catch (e) {
+                  return reject(e);
+              }
+
+              if (result.done) {
+                  return resolve(result.value)
+              };
+
+              var value = toPromise(result.value);
+
+              value.then(function(data) {
+                  next(data);
+              }, function(e) {
+                  reject(e)
+              });
+          }
+
+          next()
+      })
+
+  }
+
+  function isPromise(obj) {
+      return 'function' == typeof obj.then;
+  }
+
+  function toPromise(obj) {
+      if (isPromise(obj)) return obj;
+      if ('function' == typeof obj) return thunkToPromise(obj);
+      return obj;
+  }
+
+  function thunkToPromise(fn) {
+      return new Promise(function(resolve, reject) {
+          fn(function(err, res) {
+              if (err) return reject(err);
+              resolve(res);
+          });
+      });
+  }
+
+  module.exports = run;
+  ```
+  与第一版有很大的不同：
+
+  首先，我们返回了一个 Promise，当 result.done 为 true 的时候，将该值 resolve(result.value)，如果执行的过程中出现错误，被 catch 住，会将原因 reject(e)。
+
+  其次，会使用 thunkToPromise 将回调函数包装成一个 Promise，然后统一的添加 then 函数。在这里值得注意的是，在 thunkToPromise 函数中，遵循了 error first 的原则，这意味着当处理回调函数的情况时：
+  ```js
+  // 模拟数据请求
+  function fetchData(url) {
+      return function(cb) {
+          setTimeout(function() {
+              cb(null, { status: 200, data: url })
+          }, 1000)
+      }
+  }
+  ```
+  在成功时，第一个参数应该返回 null，表示没有错误原因。
+
+  **优化**
+  ```js
+  function run(gen) {
+    return new Promise(function(resolve, reject) {
+        if (typeof gen == 'function') gen = gen();
+
+        // 如果 gen 不是一个迭代器
+        if (!gen || typeof gen.next !== 'function') return resolve(gen)
+
+        onFulfilled();
+
+        function onFulfilled(res) {
+            var ret;
+            try {
+                ret = gen.next(res);
+            } catch (e) {
+                return reject(e);
+            }
+            next(ret);
+        }
+
+        function onRejected(err) {
+            var ret;
+            try {
+                ret = gen.throw(err);
+            } catch (e) {
+                return reject(e);
+            }
+            next(ret);
+        }
+
+        function next(ret) {
+            if (ret.done) return resolve(ret.value);
+            var value = toPromise(ret.value);
+            if (value && isPromise(value)) return value.then(onFulfilled, onRejected);
+            return onRejected(new TypeError('You may only yield a function, promise ' +
+                'but the following object was passed: "' + String(ret.value) + '"'));
+        }
+    })
+  }
+
+  function isPromise(obj) {
+      return 'function' == typeof obj.then;
+  }
+
+  function toPromise(obj) {
+      if (isPromise(obj)) return obj;
+      if ('function' == typeof obj) return thunkToPromise(obj);
+      return obj;
+  }
+
+  function thunkToPromise(fn) {
+      return new Promise(function(resolve, reject) {
+          fn(function(err, res) {
+              if (err) return reject(err);
+              resolve(res);
+          });
+      });
+  }
+
+  module.exports = run;
+  ```
+
+  **co**
+
+  如果直接使用 co 模块，这两种不同的例子可以简写为：
+
+  ```js
+  // yield 后是一个 Promise
+  var fetch = require('node-fetch');
+  var co = require('co');
+
+  function* gen() {
+      var r1 = yield fetch('https://api.github.com/users/github');
+      var json1 = yield r1.json();
+      var r2 = yield fetch('https://api.github.com/users/github/followers');
+      var json2 = yield r2.json();
+      var r3 = yield fetch('https://api.github.com/users/github/repos');
+      var json3 = yield r3.json();
+
+      console.log([json1.bio, json2[0].login, json3[0].full_name].join('\n'));
+  }
+
+  co(gen);
+  ```
+
+  #### async/await
+
+  async/await被称为 JS 中异步终极解决方案。
+  它既能够像 co + Generator 一样用同步的方式来书写异步代码，又得到底层的语法支持，无需借助任何第三方库。
+  接下来，从原理的角度来重新审视这个语法糖背后究竟做了些什么。
+
+  **基本概念**
+
+  **async**
+  ```
+    MDN 的定义: async 是一个通过异步执行并隐式返回 Promise 作为结果的函数。
+  ```
+  举个例子
+  ```js
+  async function func() {
+      return 100;
+  }
+  console.log(func());
+  // Promise {<resolved>: 100}
+  ```
+  这就是隐式返回 Promise 的效果。
+
+  **await**
+
+  await做了些什么事情。
+
+  举个例子
+  ```js
+  async function test() {
+    console.log(100)
+    let x = await 200
+    console.log(x)
+    console.log(200)
+  }
+  console.log(0)
+  test()
+  console.log(300)
+  ```
+  来分析一下这段程序。首先代码同步执行，打印出0，然后将test压入执行栈，打印出100, 下面注意了，遇到了关键角色await。
+
+  放个慢镜头:
+
+  ```js
+  await 100;
+  ```
+  被 JS 引擎转换成一个 Promise :
+
+  ```js
+  let promise = new Promise((resolve,reject) => {
+    resolve(100);
+  })
+  ```
+  这里调用了 resolve，resolve的任务进入微任务队列。
+
+  然后，JS 引擎将暂停当前协程的运行，把线程的执行权交给父协程。
+
+  回到父协程中，父协程的第一件事情就是对await返回的Promise调用then, 来监听这个 Promise 的状态改变 。
+  ```js
+  promise.then(value => {
+    // 相关逻辑，在resolve 执行之后来调用
+  })
+  ```
+  然后往下执行，打印出300。
+
+  根据EventLoop机制，当前主线程的宏任务完成，现在检查微任务队列, 发现还有一个Promise的 resolve，执行，现在父协程在then中传入的回调执行。我们来看看这个回调具体做的是什么。
+
+  ```js
+  promise.then(value => {
+    // 1. 将线程的执行权交给test协程
+    // 2. 把 value 值传递给 test 协程
+  })
+  ```
+  Ok, 现在执行权到了test协程手上，test 接收到父协程传来的200, 赋值给 a ,然后依次执行后面的语句，打印200、200。
+
+  最后的输出为:
+
+  ```js
+  0
+  100
+  300
+  200
+  200
+  ```
+  总结一下，async/await利用协程和Promise实现了同步方式编写异步代码的效果，其中Generator是对协程的一种实现，虽然语法简单，但引擎在背后做了大量的工作.
+  用async/await写出的代码也更加优雅、美观，相比于之前的Promise不断调用then的方式，语义化更加明显，相比于co + Generator性能更高，上手成本也更低。
+
+
+
+
+
+
