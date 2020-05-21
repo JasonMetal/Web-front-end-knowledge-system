@@ -11,17 +11,50 @@ module.exports = {
     ga: '',
     evergreen: true,
     themeConfig: {
-        nav: [
-        //   { text: 'Home', link: '/' },
-        ],
         sidebarDepth: 2,
         sidebar: [
             {
                 title: 'JavaScript',
                 collapsable: true,
-                children: ['/javaScript/']
+                children: [
+                    '/javaScript/dataType',
+                    '/javaScript/variable',
+                    '/javaScript/function',
+                    '/javaScript/environment',
+                    '/javaScript/closure',
+                    '/javaScript/RAM',
+                    '/javaScript/object',
+                    '/javaScript/Cross-domain',
+                    '/javaScript/Simulation',
+                    '/javaScript/advancedSkills',
+                    '/javaScript/es6',
+                ]
             },
+            {
+                title: '浏览器',
+                collapsable: true,
+                children: [
+                    '/browser/cache'
+                ],
+                sidebarDepth: 2,
+            },
+            
         ]
+        // sidebar: {
+        //     '/javaScript/': [
+        //     '',
+        //     ],
+        //     '/browser/': [
+        //     '',
+        //     ],
+        //     '/foo/': [
+        //     '',     /* /foo/ */
+        //     ],
+    
+        //     '/bar/': [
+        //     '',      /* /bar/ */
+        //     ],        
+        // }
     },
     
 }
