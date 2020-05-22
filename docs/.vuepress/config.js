@@ -34,7 +34,8 @@ module.exports = {
                 title: '浏览器',
                 collapsable: true,
                 children: [
-                    '/browser/cache'
+                    '/browser/cache',
+                    '/browser/storage'
                 ],
                 sidebarDepth: 2,
             },
