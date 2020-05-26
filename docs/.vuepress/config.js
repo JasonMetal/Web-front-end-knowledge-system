@@ -21,6 +21,7 @@ module.exports = {
                     '/javaScript/variable',
                     '/javaScript/function',
                     '/javaScript/environment',
+                    '/javaScript/operating-mechanism',
                     '/javaScript/closure',
                     '/javaScript/RAM',
                     '/javaScript/object',
@@ -34,8 +35,11 @@ module.exports = {
                 title: '浏览器',
                 collapsable: true,
                 children: [
+                    '/browser/storage',
                     '/browser/cache',
-                    '/browser/storage'
+                    '/browser/netWork',
+                    '/browser/parse',
+                    '/browser/render',
                 ],
                 sidebarDepth: 2,
             },
