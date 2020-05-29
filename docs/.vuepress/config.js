@@ -40,6 +40,7 @@ module.exports = {
                     '/browser/netWork',
                     '/browser/parse',
                     '/browser/render',
+                    '/browser/backflow',
                 ],
                 sidebarDepth: 2,
             },
