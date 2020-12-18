@@ -61,7 +61,6 @@
         edition: 1
       }
 
-      //Object.defindeProtoperty (book, 'year', {
       Object.defindeProperty (book, 'year', {
         get: function() {
           return this._year;
@@ -83,7 +82,7 @@
   Object.definedProtoperties()用于一次定义多个属性，例如：
   ```js
     var book = {}
-    Object.definedProtoperties(book, {
+    Object.defineProperties(book, {
       _year: {
         writable: true,
         value: 2004,
