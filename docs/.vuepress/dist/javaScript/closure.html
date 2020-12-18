@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>闭包 | 前端知识体系</title>
+    <meta name="generator" content="VuePress 1.5.0">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="Hello, my friend!">
+    <link rel="preload" href="/assets/css/0.styles.48240ebe.css" as="style"><link rel="preload" href="/assets/js/app.6c2637d3.js" as="script"><link rel="preload" href="/assets/js/2.27443c7c.js" as="script"><link rel="preload" href="/assets/js/20.26c4e110.js" as="script"><link rel="prefetch" href="/assets/js/10.d6ce64c1.js"><link rel="prefetch" href="/assets/js/11.0467e54b.js"><link rel="prefetch" href="/assets/js/12.c0b512cf.js"><link rel="prefetch" href="/assets/js/13.92d05ec6.js"><link rel="prefetch" href="/assets/js/14.67ee77a9.js"><link rel="prefetch" href="/assets/js/15.1a278dde.js"><link rel="prefetch" href="/assets/js/16.8a26aa8d.js"><link rel="prefetch" href="/assets/js/17.c01075c9.js"><link rel="prefetch" href="/assets/js/18.ed7a24dd.js"><link rel="prefetch" href="/assets/js/19.6a9cab6a.js"><link rel="prefetch" href="/assets/js/21.b40d2237.js"><link rel="prefetch" href="/assets/js/22.e5a860ac.js"><link rel="prefetch" href="/assets/js/23.d480ba1e.js"><link rel="prefetch" href="/assets/js/24.28dc7c85.js"><link rel="prefetch" href="/assets/js/25.14d0edb7.js"><link rel="prefetch" href="/assets/js/26.492bbaa0.js"><link rel="prefetch" href="/assets/js/3.6594e7c8.js"><link rel="prefetch" href="/assets/js/4.33e9f10e.js"><link rel="prefetch" href="/assets/js/5.5d7fddc0.js"><link rel="prefetch" href="/assets/js/6.abd684bd.js"><link rel="prefetch" href="/assets/js/7.a5a691a8.js"><link rel="prefetch" href="/assets/js/8.5d614647.js"><link rel="prefetch" href="/assets/js/9.1d44e93b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.48240ebe.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端知识体系</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JavaScript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/javaScript/dataType.html" class="sidebar-link">数据类型</a></li><li><a href="/javaScript/variable.html" class="sidebar-link">变量</a></li><li><a href="/javaScript/function.html" class="sidebar-link">函数</a></li><li><a href="/javaScript/environment.html" class="sidebar-link">执行环境</a></li><li><a href="/javaScript/operating-mechanism.html" class="sidebar-link">运行机制</a></li><li><a href="/javaScript/closure.html" aria-current="page" class="active sidebar-link">闭包</a></li><li><a href="/javaScript/RAM.html" class="sidebar-link">内存问题</a></li><li><a href="/javaScript/object.html" class="sidebar-link">面向对象的程序设计</a></li><li><a href="/javaScript/Cross-domain.html" class="sidebar-link">跨域 与 Coment</a></li><li><a href="/javaScript/Simulation.html" class="sidebar-link">原理模拟实现</a></li><li><a href="/javaScript/advancedSkills.html" class="sidebar-link">高级技巧</a></li><li><a href="/javaScript/es6.html" class="sidebar-link">ES6</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h1> <p>闭包是指(有权访问另一个函数作用域中的变量)的函数。
+创建闭包的常见方式，就是在一个函数内创建另一个函数，如下例子：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">createFunction</span><span class="token punctuation">(</span><span class="token parameter">name</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">obj1<span class="token punctuation">,</span> obj2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> value1 <span class="token operator">=</span> obj1<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> value2 <span class="token operator">=</span> obj2<span class="token punctuation">[</span>name<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>value1 <span class="token operator">&lt;</span> value2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>value1 <span class="token operator">&gt;</span> value2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>要理解闭包，必须先理解如何创建作用域链以及作用域链有什么作用的细节。
+当某个函数被执行时，会创建一个执行环境以及相应的作用域链。
+然后使用agruments和其他命名参数的值来初始化函数的活动对象。
+但在作用域中，外部函数的活动对象始终处于第二位，外部函数的外部函数的活动对象处于第三位，直到作为作用域链终端的全局执行环境位置。
+来看下面的例子：</p> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token keyword">function</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token parameter">value1<span class="token punctuation">,</span> value2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>value1 <span class="token operator">&lt;</span> value2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>value1 <span class="token operator">&gt;</span> value2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+ <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre></div><p>当调用compare时，会创建一个包含arguments、value1、value2的活动对象。
+全局执行环境的变量对象（result、compare）在compara执行环境的作用域链中则处于第二位。</p> <p>后台的每个执行环境都有一个表示变量的对象——变量对象。
+全局的变量对象始终存在，而像compare这样的局部环境的变量对象，只在函数执行时存在。</p> <p>在创建compare()函数时，会创建一个预先包含全局变量对象的作用域链，这个作用域链被保存在内部的[[Scope]]属性中。</p> <p>当调用compare时，会创建一个执行环境，然后通过复制函数的[[Scope]]属性中的对象构建起执行环境的作用域链。</p> <p>此后，又有一个活动对象被创建并被推入执行环境的作用域链前端。</p> <p>作用域链本质上是一个指向变量对象的指针列表，它只引用但不实际包含变量对象。</p> <p>在另一个函数内部定义的函数会将包含函数（即外部函数）的活动对象添加到它的作用域中。</p> <p>因此createFunction（）函数内部定义的匿名函数的作用域中，实际上将会包含createFunction（）的活动对象。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> compare <span class="token operator">=</span> <span class="token function">createFunction</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'nina'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'greg'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p>当createFunction函数返回后，其执行环境的作用域被摧毁，但它的活动变量仍然在内存中；
+直到匿名函数被销毁后，createFunction的活动对象才会被销毁，列如：</p> <div class="language-js extra-class"><pre class="language-js"><code>  <span class="token comment">// 创建函数</span>
+  <span class="token keyword">var</span> compareNames <span class="token operator">=</span> <span class="token function">createFunction</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'nina'</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'greg'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+  compare <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+</code></pre></div><p>通过将 compare 设置为null来接触该函数的引用。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/javaScript/operating-mechanism.html" class="prev">
+        运行机制
+      </a></span> <span class="next"><a href="/javaScript/RAM.html">
+        内存问题
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.6c2637d3.js" defer></script><script src="/assets/js/2.27443c7c.js" defer></script><script src="/assets/js/20.26c4e110.js" defer></script>
+  </body>
+</html>
