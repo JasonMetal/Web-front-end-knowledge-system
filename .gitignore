@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
 *.vscode
+/node_modules
 # Log file
 *.log
 
