@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.4.0"
+    "vuepress": "^1.4.0",
+    "watchpack": "^2.1.0"
   }
 }

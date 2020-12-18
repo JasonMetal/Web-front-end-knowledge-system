@@ -20,6 +20,7 @@
   和value。设置其中的一个或多个值，可以修改对应的特性值。例如：
 
   ```js
+    /* 可能有误
     var person = {}
     Object.defindePropertotype(person, 'name', {
       configurable: true,
@@ -28,7 +29,18 @@
       value: 'Nine'
     })
     person.name = 'xiaoming'
-    alter(p.name) // Nine
+    alter(p.name) // Nine */
+    
+    var person = {}
+    Object.defineProperty(person, 'name', {
+        configurable: true,
+        enumerable: true,
+        writable: false,
+        value: 'Nine'
+    })
+    person.name = 'xiaoming'
+    console.log(person.name) // Nine
+
   ```
 
   2.访问器属性
@@ -42,13 +54,15 @@
   [[Set]]: 在写入属性时调用的函数。
 
   访问器属性不能直接定义，必须使用Object.definedpropertoty()来定义。请看下面的例子。
+  
   ```js
       var book = {
         _year: 2004,
         edition: 1
       }
 
-      Object.defindeProtoperty (book, 'year', {
+      //Object.defindeProtoperty (book, 'year', {
+      Object.defindeProperty (book, 'year', {
         get: function() {
           return this._year;
         },
@@ -62,6 +76,8 @@
 
       book.year = 2005;
       book.edition = 2;
+
+      console.log(JSON.stringify(book)) // {"_year":2005,"edition":2}
   ```
   3. 定义多个属性
   Object.definedProtoperties()用于一次定义多个属性，例如：
