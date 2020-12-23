@@ -1,7 +1,6 @@
 module.exports = {
     title: '前端知识笔记',
     description: '',
-    base: '/jsWang.github.io/',
     head: [
         ['link', {
             rel: 'icon',
