@@ -29,7 +29,8 @@ module.exports = {
                     '/javaScript/Simulation',
                     '/javaScript/advancedSkills',
                     '/javaScript/es6',
-                ]
+                    '/javaScript/yDknow/on',
+                ],
             },
             {
                 title: '浏览器',
@@ -44,7 +45,6 @@ module.exports = {
                 ],
                 sidebarDepth: 2,
             },
-            
         ]
         // sidebar: {
         //     '/javaScript/': [

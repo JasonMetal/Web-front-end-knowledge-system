@@ -1,10 +1,5 @@
-
- 
-
-
+  # es6
   
-  # ES6
-
   ## let 和 const
 
   ### 特性
@@ -1417,8 +1412,649 @@
   总结一下，async/await利用协程和Promise实现了同步方式编写异步代码的效果，其中Generator是对协程的一种实现，虽然语法简单，但引擎在背后做了大量的工作.
   用async/await写出的代码也更加优雅、美观，相比于之前的Promise不断调用then的方式，语义化更加明显，相比于co + Generator性能更高，上手成本也更低。
 
+# 编码规范
+## 引用
+1. 注意 let 和 const 都是块级作用域。
+```js
+// const 和 let 只存在于它们被定义的区块内。
+{
+  let a = 1;
+  const b = 1;
+}
+console.log(a) // ReferenceError
+console.log(b); // ReferenceError
+```
+## 对象
+1. 创建动态属性名的对象时，使用可被计算的属性名称。
+   为什么？因为这样可以让你在一个地方定义所有的属性。
+```js
+function getKey(key) {
+  return `a key name ${key}`
+}
+
+// bad 
+const obj = {
+  id: 5,
+  name: 'San Francisco'
+}
+obj[getKey('enabled')] = true;
+
+// good 
+const obj = {
+  id: 5,
+  name: 'San Francisco',
+  [getKey('enabled')]: true,
+}
+```
+2. 如果对象的键是字符串，请使用长格式语法
+```js
+// bad
+const foo = {
+  'bar-baz': {},
+}
+// good
+const foo = {
+  'bar-baz': function(){},
+}
+```
+3. 在对象属性声明前把简写的的属性分组。
+  为什么？因为这样能清楚的看出哪些属性使用了简写。
+```js
+const anakinSkywalker = 'Anakin Skywalker';
+const lukeSkywalker = 'Luke Skywalker';
+
+// bad
+const obj = {
+  episodeOne: 1,
+  twoJedisWalkIntoACantina: 2,
+  lukeSkywalker,
+  episodeThree: 3,
+  mayTheFourth: 4,
+  anakinSkywalker,
+};
+
+// good
+const obj = {
+  lukeSkywalker,
+  anakinSkywalker,
+  episodeOne: 1,
+  twoJedisWalkIntoACantina: 2,
+  episodeThree: 3,
+  mayTheFourth: 4,
+};
+```
+4. 禁止在对象中使用不必要的计算属性
+```js
+// bad
+const a = {['0']: 0};
+const a = { ['0+1,234']: 0 };
+const a = { [0]: 0 };
+const a = { ['x']: 0 };
+const a = { ['x']() {} };
+
+// good
+const c = { a: 0 };
+const c = { 0: 0 };
+const a = { x() {} };
+const c = { a: 0 };
+const c = { '0+1,234': 0 };
+
+```
+5. 只允许引号标注无效标识符的属性
+```js
+// bad
+const bad = {
+  'foo': 3,
+  'bar': 4,
+  'data-blah': 5,
+};
+
+// good
+const good = {
+  foo: 3,
+  bar: 4,
+  'data-blah': 5,
+};
+```
+
+## 数组 
+1. 向数组添加元素时使用 Arrary#push 替代直接赋值。
+```js
+const someStack = [];
+
+// bad
+someStack[someStack.length] = 'abracadabra';
+
+// good
+someStack.push('abracadabra');
+```
+
+2. 使用数组展开方法...来拷贝数组。
+```js
+// bad 
+const len = items.length;
+const itemsCopy = [];
+let i ;
+
+for (let i = 0; i < len; i+=1);{
+  itemsCopy = item[i];
+}
+
+// good
+const itemsCopy = [...items];
+```
+
+3. 将一个数组对象转成一个数组，使用展开方法``...``代替``Array.from``。
+
+```js
+const foo = document.querySelectorAll('.foo');
+
+// good
+const nodes = Array.from(foo);
 
 
+// best
+const nodes = [...foo];
+```
 
+4. 在数组回调方法中使用return语句。 如果函数体由一个返回无副作用的表达式的单个语句组成，那么可以省略返回值。
 
+```js
+// bad 没有返回值，意味着在第一次迭代后acc没有被定义
+[[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) => {
+   const flatten = acc.concat(item);
+   acc[index] = flatten;
+})
 
+// bad
+inbox.filter( msg => {
+    const { subject, author } = msg;
+    if (subject === 'Mockingbird') {
+      return author === 'Harper Lee';
+    } else {
+      return false;
+    }
+})
+
+// good
+inbox.filter( msg => {
+  const { subject, author } = msg;
+  if (subject === 'Mockingbird') {
+    return author === 'Harper Lee';
+  }
+
+  return false;
+});
+
+// good
+[1, 2, 3].map(x => x + 1);
+
+```
+
+## 解构
+
+1. 在访问和使用对象的多个属性的时候使用对象的解构
+   为什么？因为对象解构可以避免为这些属性创建临时引用
+```js
+// bad
+function getFullName(user) {
+  const firstName = user.firstName;
+  const lastName = user.lastName;
+
+  return `${firstName} ${lastName}`;
+}
+
+// good
+function getFullName(obj) {
+  const { firstName, lastName } = obj;
+  return `${firstName} ${lastName}`;
+}
+
+// best
+function getFullName({ firstName, lastName }) {
+  return `${firstName} ${lastName}`;
+}
+```
+
+2. 对数组使用解构赋值
+```js
+const arr = [1, 2, 3, 4];
+
+// bad
+const first = arr[0];
+const second = arr[1];
+
+// good
+const [first, second] = arr; // first = 1  second = 2
+const [, first, second] = arr;
+```
+3. 对于多个返回值使用对象解构，而不是数组解构。
+  为什么？你可以随时添加新的属性或者改变属性的顺序，而不用修改调用方。
+```js
+// bad
+function processInput(input) {
+  // then a miracle occurs
+  return [left, right, top, bottom];
+}
+
+// 调用时需要考虑回调数据的顺序。
+const [left, __, top] = processInput(input);
+
+// good
+function processInput(input) {
+  // then a miracle occurs
+  return { left, right, top, bottom };
+}
+
+// 调用时只选择需要的数据
+const { left, right } = processInput(input);
+```
+
+## 字符串
+1. 静态字符串一律使用`''`。（如果不是引号嵌套，不要使用双引号）；
+```js
+// bad
+const name = "Capt. Janeway";
+
+// bad - 模板文字应该包含插值或换行。
+
+const name = `Capt. Janeway`
+
+// good
+const name = 'Capt. Janeway';
+
+```
+
+2. 使行超过100个字符的字符串不应使用字符串连接跨多行写入。
+  注：过度使用字符串连接符号可能会对性能造成影响。
+```js
+// bad
+const errorMessage = 'This is a super long error that was thrown because \
+of Batman. When you stop to think about how Batman had anything to do \
+with this, you would get nowhere \
+fast.';
+
+// good
+const errorMessage = 'This is a super long error that was thrown because ' +
+  'of Batman. When you stop to think about how Batman had anything to do ' +
+  'with this, you would get nowhere fast.';
+
+// good
+const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
+```
+
+3. 模板字符串中的嵌入表达式两端不要存在空格
+```js
+// bad
+`hello, ${ name}!`;
+`hello, ${name }!`;
+`hello, ${ name }!`;
+
+// good
+`hello, ${name}!`;
+`hello, ${
+    name
+}!`;
+```
+
+4. 不要在转义字符串中不必要的字符
+```js
+// bad
+const foo = '\'this\' \i\s \"quoted\"';
+
+// good
+const foo = '\'this\' is "quoted"';
+const foo = `my name is '${name}'`;
+```
+
+## 函数
+1. 使用函数声明代替函数表达式。
+为什么？因为函数声明是可命名的，所以他们在调用栈中更容易被识别。此外，函数声明会把整个函数提升（hoisted），而函数表达式只会把函数的引用变量名提升。这条规则使得箭头函数可以取代函数表达式。
+
+```js
+// bad
+const foo = function () {
+};
+
+// good
+const short = function test() {
+  // ...
+};
+const foo = () => {};
+
+// best
+function foo() {
+}
+```
+2. 函数表达式:
+
+```js
+// 立即调用的函数表达式 (IIFE)
+(() => {
+  console.log('Welcome to the Internet. Please follow me.');
+})();
+```
+
+3. 永远不要在一个非函数代码块（if, while 等）中申明一个函数，应该把那个函数赋给一个变量。浏览器允许你这么做，但它们的解析表现不一致。
+
+4. ECMA-262 把 block 定义为一组语句。函数声明不是语句
+```js
+// bad
+if (currentUser) {
+  function test() {
+    console.log('Nope.');
+  }
+}
+
+// good
+let test;
+if (currentUser) {
+  test = () => {
+    console.log('Yup.');
+  };
+}
+```
+
+## 模块
+
+1. 不要使用通配符导入。
+为什么？这样能确保你只有一个默认 export。
+```js
+// bad 不报错
+import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+
+// good
+import AirbnbStyleGuide from './AirbnbStyleGuide';
+```
+
+2. 确保import和export命名匹配
+
+```js
+// ./foo.js
+export const foo = "I'm so foo";
+
+// bad
+// ./baz.js
+import { notFoo } from './foo'
+
+// good
+// ./bar.js
+import { foo } from './foo'
+
+```
+
+3. 模块导入顺序优先级注意。并且import优先级一定高于require。模块导入按照以下顺序
+
+node模块(fs等)
+
+外部模块(lodash等)
+
+全局模块
+
+父目录模块
+
+当前目录模块
+
+4. 如果一个模块仅有一个导出 请加上export default
+
+```js
+// bad
+export const foo = 'foo';
+
+// good
+// example1
+export const foo = 'foo';
+const bar = 'bar';
+export default 'bar';
+
+// example2
+export const foo = 'foo';
+export const bar = 'bar';
+
+// example3
+const foo = 'foo';
+const bar = 'bar';
+export default { foo, bar }
+
+// example4
+const foo = 'foo';
+export { foo as default }
+```
+
+7. 禁止使用default作为导入变量名，因为会与export default冲突发生错误。
+
+8. 禁止使用绝对路径导入
+
+```js
+// bad
+import f from '/foo';
+import f from '/some/path';
+
+const f = require('/foo');
+const f = require('/some/path');
+
+// good
+import _ from 'lodash';
+import foo from 'foo';
+import foo from './foo';
+
+const _ = require('lodash');
+const foo = require('foo');
+const foo = require('./foo');
+```
+
+9. 禁止使用AMD require/define。
+为什么？因为ES6已经具备模块化，不需要再使用AMD规范了。
+```js
+// bad
+define(["a", "b"], function (a, b) { /* ... */ });
+
+require(["b", "c"], function (b, c) { /* ... */ });
+```
+
+10. 禁止在 import 和 export 和解构赋值时将引用重命名为相同的名字
+
+```js
+// bad
+import { foo as foo } from "bar";
+
+export { foo as foo };
+
+export { foo as foo } from "bar";
+
+let { foo: foo } = bar;
+let { 'foo': foo } = bar;
+function foo({ bar: bar }) {}
+({ foo: foo }) => {}
+
+import * as foo from "foo";
+import { foo } from "bar";
+import { foo as bar } from "baz";
+
+export { foo };
+export { foo as bar };
+export { foo as bar } from "foo";
+
+let { foo } = bar;
+let { foo: bar } = baz;
+let { [foo]: foo } = bar;
+
+function foo({ bar }) {}
+function foo({ bar: baz }) {}
+
+({ foo }) => {}
+({ foo: bar }) => {}
+
+```
+
+## 比较运算符和等号
+
+1. 对于绝大多数的使用情况下，结果typeof操作是下列字符串常量之一："undefined"，"object"，"boolean"，"number"，"string"，"function"和"symbol"。将typeof运算符的结果与其他字符串文字进行比较通常是代码编写出现错误
+
+```js
+ //bad
+typeof foo === undefined;
+typeof bar == Object;
+typeof baz === 'strnig';
+typeof qux === 'some invalid type';
+typeof baz === anotherVariable;
+typeof foo == 5;
+
+//good
+typeof foo === 'undefined';
+typeof bar == 'object';
+typeof baz === 'string';
+typeof bar === typeof qux;
+```
+
+## 类型转换
+1. 在语句开始时执行类型转换
+
+2. 字符串
+```js
+// => this.reviewScore = 9;
+
+// bad
+const totalScore = new String(this.reviewScore); // typeof totalScore is "object" not "string"
+
+// bad
+const totalScore = this.reviewScore + ''; // invokes this.reviewScore.valueOf()
+
+// bad
+const totalScore = this.reviewScore.toString(); // isn’t guaranteed to return a string
+
+// good
+const totalScore = String(this.reviewScore);
+
+```
+
+3. 禁止使用位操作运算符
+当你使用位运算的时候要小心。 数字总是被以 64-bit 值 的形式表示，但是位运算总是返回一个 32-bit 的整数。 对于大于 32 位的整数值，位运算可能会导致意外行为。 最大的 32 位整数是： 2,147,483,647。
+```js
+// bad
+var test = y | z;
+var test = y & z;
+x |= y;
+x &= y;
+var test = y ^ z;
+var test = ~ z;
+var test = y << z;
+var test = y >> z;
+
+// good
+var test = y || z;
+var test = y && z;
+var test = y > z;
+var test = y < z;
+test += y;
+```
+
+## 命名规则
+
+1. 避免单字母命名。命名应具备描述性。
+
+```js
+// bad 不报错但不推荐使用
+function q() {
+  // ...stuff...
+}
+
+// good
+function query() {
+  // ..stuff..
+}
+```
+
+2. 如果你的文件只输出一个类，那你的文件名必须和类名完全保持一致。
+
+```js
+// file contents
+class CheckBox {
+  // ...
+}
+export default CheckBox;
+
+// in some other file
+// bad
+import CheckBox from './checkBox';
+
+// bad
+import CheckBox from './check_box';
+
+// good
+import CheckBox from './CheckBox';
+```
+
+3. 当你导出默认的函数时使用驼峰式命名。你的文件名必须和函数名完全保持一致。
+
+```js
+function makeStyleGuide() {
+}
+
+export default makeStyleGuide;
+```
+
+4. 当你导出单例、函数库、空对象时使用帕斯卡式命名。
+
+```js
+const AirbnbStyleGuide = {
+  es6: {
+  }
+};
+
+export default AirbnbStyleGuide;
+```
+
+## 存取器
+1. 对于属性的存取函数不是必须的。
+
+2. 如果你需要存取函数时使用 getVal() 和 setVal('hello')。
+
+不要使用 JavaScript 的 getters/setters 方法，因为它们会导致意外的副作用，并且更加难以测试、维护和推敲。
+
+```js
+// bad
+dragon.age();
+
+// good
+dragon.getAge();
+
+// bad
+dragon.age(25);
+
+// good
+dragon.setAge(25);
+```
+
+3. 如果属性是布尔值，使用 isVal() 或 hasVal()。
+
+```js
+// bad
+if (!dragon.age()) {
+  return false;
+}
+
+// good
+if (!dragon.hasAge()) {
+  return false;
+}
+```
+
+4. 创建 get() 和 set() 函数是可以的，但要保持一致。
+
+```js
+class Jedi {
+  constructor(options = {}) {
+    const lightsaber = options.lightsaber || 'blue';
+    this.set('lightsaber', lightsaber);
+  }
+
+  set(key, val) {
+    this[key] = val;
+  }
+
+  get(key) {
+    return this[key];
+  }
+}
+```
