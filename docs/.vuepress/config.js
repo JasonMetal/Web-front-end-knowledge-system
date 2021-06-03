@@ -29,7 +29,7 @@ module.exports = {
                     '/javaScript/Simulation',
                     '/javaScript/advancedSkills',
                     '/javaScript/es6',
-                    '/javaScript/yDknow/on',
+                    
                 ],
             },
             {
@@ -45,6 +45,14 @@ module.exports = {
                 ],
                 sidebarDepth: 2,
             },
+            {
+                title: '读书笔记',
+                collapsable: true,
+                children: [
+                    '/readNode/yDknow/on',
+                ],
+            },
+            
         ]
         // sidebar: {
         //     '/javaScript/': [
