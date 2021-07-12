@@ -17,7 +17,8 @@ module.exports = {
                 title: 'JavaScript',
                 collapsable: true,
                 children: [
-                    '/javaScript/dataType',
+                    '/javaScript/type',
+                    '/javaScript/val',
                     '/javaScript/variable',
                     '/javaScript/function',
                     '/javaScript/environment',
@@ -27,9 +28,7 @@ module.exports = {
                     '/javaScript/object',
                     '/javaScript/Cross-domain',
                     '/javaScript/Simulation',
-                    '/javaScript/advancedSkills',
-                    '/javaScript/es6',
-                    
+                    '/javaScript/advancedSkills',                    
                 ],
             },
             {
