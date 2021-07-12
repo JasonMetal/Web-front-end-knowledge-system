@@ -1,7 +1,6 @@
 module.exports = {
     title: '前端知识笔记',
     description: '',
-    base: '/jsWang.github.io/',
     head: [
         ['link', {
             rel: 'icon',
@@ -18,7 +17,8 @@ module.exports = {
                 title: 'JavaScript',
                 collapsable: true,
                 children: [
-                    '/javaScript/dataType',
+                    '/javaScript/type',
+                    '/javaScript/val',
                     '/javaScript/variable',
                     '/javaScript/function',
                     '/javaScript/environment',
@@ -28,9 +28,8 @@ module.exports = {
                     '/javaScript/object',
                     '/javaScript/Cross-domain',
                     '/javaScript/Simulation',
-                    '/javaScript/advancedSkills',
-                    '/javaScript/es6',
-                ]
+                    '/javaScript/advancedSkills',                    
+                ],
             },
             {
                 title: '浏览器',
@@ -44,6 +43,13 @@ module.exports = {
                     '/browser/backflow',
                 ],
                 sidebarDepth: 2,
+            },
+            {
+                title: '读书笔记',
+                collapsable: true,
+                children: [
+                    '/readNode/yDknow/on',
+                ],
             },
             
         ]

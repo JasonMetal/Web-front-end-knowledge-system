@@ -1,7 +1,7 @@
 ---
 home: true
 actionText: 进入 →
-actionLink: /javaScript/dataType
+actionLink: /javaScript/type
 features:
 - title:
   details: 
