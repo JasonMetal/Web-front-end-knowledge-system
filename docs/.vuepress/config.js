@@ -21,6 +21,8 @@ module.exports = {
                     '/javaScript/val',
                     '/javaScript/variable',
                     '/javaScript/nativeFunction',
+                    '/javaScript/grammar',
+                    '/javaScript/asyn',
                     '/javaScript/environment',
                     '/javaScript/operating-mechanism',
                     '/javaScript/closure',
