@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>《你不知道的JavaScript(上)》 读书笔记 | 前端知识笔记</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/favicon.ico">
+    
+    <link rel="preload" href="/assets/css/0.styles.4b1b2517.css" as="style"><link rel="preload" href="/assets/js/app.735e6fcb.js" as="script"><link rel="preload" href="/assets/js/2.5cb423a9.js" as="script"><link rel="preload" href="/assets/js/32.1d6b4690.js" as="script"><link rel="prefetch" href="/assets/js/10.003b1904.js"><link rel="prefetch" href="/assets/js/11.e6c51907.js"><link rel="prefetch" href="/assets/js/12.97f760ec.js"><link rel="prefetch" href="/assets/js/13.16a079d8.js"><link rel="prefetch" href="/assets/js/14.ba729c8e.js"><link rel="prefetch" href="/assets/js/15.98bc4478.js"><link rel="prefetch" href="/assets/js/16.9c982a45.js"><link rel="prefetch" href="/assets/js/17.bbebe80a.js"><link rel="prefetch" href="/assets/js/18.417f5bdf.js"><link rel="prefetch" href="/assets/js/19.c8b21384.js"><link rel="prefetch" href="/assets/js/20.6f51abd7.js"><link rel="prefetch" href="/assets/js/21.bf283b45.js"><link rel="prefetch" href="/assets/js/22.7be7440a.js"><link rel="prefetch" href="/assets/js/23.4742eeb2.js"><link rel="prefetch" href="/assets/js/24.d1d0ae86.js"><link rel="prefetch" href="/assets/js/25.05ddb5ef.js"><link rel="prefetch" href="/assets/js/26.f6b481a9.js"><link rel="prefetch" href="/assets/js/27.484f76eb.js"><link rel="prefetch" href="/assets/js/28.f775b8d4.js"><link rel="prefetch" href="/assets/js/29.d6781efc.js"><link rel="prefetch" href="/assets/js/3.3907cef8.js"><link rel="prefetch" href="/assets/js/30.82e04d36.js"><link rel="prefetch" href="/assets/js/31.d1b57a76.js"><link rel="prefetch" href="/assets/js/33.8f0ed1db.js"><link rel="prefetch" href="/assets/js/4.9a0a833f.js"><link rel="prefetch" href="/assets/js/5.ce8228c5.js"><link rel="prefetch" href="/assets/js/6.77f60620.js"><link rel="prefetch" href="/assets/js/7.f2ca32c7.js"><link rel="prefetch" href="/assets/js/8.7ba72efb.js"><link rel="prefetch" href="/assets/js/9.3c298ae0.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.4b1b2517.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">前端知识笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>读书笔记</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/readNode/yDknow/on.html" class="active sidebar-link">《你不知道的JavaScript(上)》 读书笔记</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#第一章-作用域是什么" class="sidebar-link">第一章 作用域是什么</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_1-1-编译原理" class="sidebar-link">1.1 编译原理</a></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_1-2-理解作用域" class="sidebar-link">1.2 理解作用域</a></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_1-3-作用域嵌套" class="sidebar-link">1.3 作用域嵌套</a></li></ul></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#第二章-词法作用域" class="sidebar-link">第二章 词法作用域</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_2-1-词法阶段" class="sidebar-link">2.1 词法阶段</a></li></ul></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#第四章-提升" class="sidebar-link">第四章 提升</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_4-1" class="sidebar-link">4.1</a></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_4-2-编译器再度来袭" class="sidebar-link">4.2 编译器再度来袭</a></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_4-3-函数优先" class="sidebar-link">4.3 函数优先</a></li></ul></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#第二章-作用域闭包" class="sidebar-link">第二章 作用域闭包</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_5-1" class="sidebar-link">5.1</a></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_5-2" class="sidebar-link">5.2</a></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_5-3-现在我懂了" class="sidebar-link">5.3 现在我懂了</a></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_5-4-闭包与循环" class="sidebar-link">5.4 闭包与循环</a></li><li class="sidebar-sub-header"><a href="/readNode/yDknow/on.html#_5-5模块" class="sidebar-link">5.5模块</a></li></ul></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="《你不知道的javascript-上-》-读书笔记"><a href="#《你不知道的javascript-上-》-读书笔记" class="header-anchor">#</a> 《你不知道的JavaScript(上)》 读书笔记</h1> <h1 id="第一部分-作用域和闭包"><a href="#第一部分-作用域和闭包" class="header-anchor">#</a> 第一部分 作用域和闭包</h1> <h2 id="第一章-作用域是什么"><a href="#第一章-作用域是什么" class="header-anchor">#</a> 第一章 作用域是什么</h2> <p>在一个编程语言中存储变量，并且之后可以方便地找到变量的规则被称为作用域。</p> <h3 id="_1-1-编译原理"><a href="#_1-1-编译原理" class="header-anchor">#</a> 1.1 编译原理</h3> <p>尽管通常将JavaScript归类为“动态” 或 “解释执行”语言，但事实上它是一门编译语言。
+但与传统的编译语言不同，它不是提前编译，编译结果也不能在分布式系统中进行移植。
+尽管如此，JavaScript引擎进行编译的步骤与传统的编译语言的步骤非常相似，在某些
+环节可能比预想的复杂。</p> <p>传统语言的编译步骤：</p> <ol><li><p>分词/词法分析</p> <p>这个过程会将字符串分解成对编程语言来说有意义的代码块，这些代码块称为词法单元。
+列如：<code>var a = 2;</code> 可以分解成 <code>var</code> <code>a</code> <code>=</code> <code>2</code> <code>;</code>。空格是否被当作词法单元，
+这取决于，空格对这门语言是否有意义。</p></li> <li><p>解析/语法分析</p> <p>这个过程会将词法流转成一个逐级嵌套组成的代表了程序语法结构的树，叫做抽象语法树（AST）。</p> <p>var a = 2; 的抽象语法树中可能有一个叫做VariableDeclaration的顶级节点，接下来有一个
+叫做Identifier（它的值为a）的子节点，以及一个叫做AssignmentExpression的子节点。
+AssignmentExpression节点有一个叫作NumericLiteral（它的值是2）的子节点。</p></li> <li><p>代码生成
+将AST转化为可执行代码的过程叫做代码生成。简单来说，就是有某种方法将var a = 2;的AST
+转化成机器指令，用来创建一个叫做a(包括分配内存等)的变量，并将一个值存在a中。</p></li></ol> <h3 id="_1-2-理解作用域"><a href="#_1-2-理解作用域" class="header-anchor">#</a> 1.2 理解作用域</h3> <p>1.2.1</p> <p>引擎：从头到尾负责整个javaScript的编译及执行过程。</p> <p>编译器：引擎的好朋友之一，负责语法分析以及代码生产等脏活累活。</p> <p>作用域：引擎的另一个好朋友，负责收集并维护所有声明的变量组成的系列查询，
+并实施一套非常严格的规则，确定当前执行代码对这些变量的访问权限。</p> <p>当你看到 var a = 2; 这段程序时，可能认为这是一个声明。但是引擎并不这么看。
+事实上，引擎认为这里有两个完全不同的声明，一个由编译器在编译时处理，另一个
+则由引擎在运行时处理。</p> <p>编译器当遇到 var a, 询问作用域是否有一个该名称的变量存在于同一个作用域的集合中。
+如果是，编译器则忽略该声明，继续编译；否则它会要求作用在当前作用域的集合中
+声明一个新的变量，并命名为a。</p> <p>接下来编译器会为引擎生成运行时所需的代码，这些代码用来处理 a = 2这个赋值操作。
+引擎运行时会询问当前的作用域集合中是否存在叫a的变量。如果是，引擎就会使用这个变量；
+如果否就会继续查找改变了。</p> <p>如果引擎最终找到了a这个变量，就会将2赋值给它。否则引擎就会抛出一个错误。</p> <p>1.2.2 编译器的术语</p> <p>RHS查询与简单地查找某个变量的值别无二致，而LHS查询则是试图找到变量的容器本身，从而可以对其赋值</p> <p>1.2.3 引擎和作用域的对话</p> <h3 id="_1-3-作用域嵌套"><a href="#_1-3-作用域嵌套" class="header-anchor">#</a> 1.3 作用域嵌套</h3> <p>引擎从当前作用域开始查询变量，如果找不到，就向上一级继续查找。当抵达最外层的全局作用域为止。</p> <h2 id="第二章-词法作用域"><a href="#第二章-词法作用域" class="header-anchor">#</a> 第二章 词法作用域</h2> <h3 id="_2-1-词法阶段"><a href="#_2-1-词法阶段" class="header-anchor">#</a> 2.1 词法阶段</h3> <p>词法作用域是定义在词法阶段的作用域。换句话说，词法作用域是由你写代码时将变量和块作用域写在哪来决定的，
+因此词法分析器处理代码时会保持作用域不变。</p> <h2 id="第四章-提升"><a href="#第四章-提升" class="header-anchor">#</a> 第四章 提升</h2> <h3 id="_4-1"><a href="#_4-1" class="header-anchor">#</a> 4.1</h3> <p>直觉上会认为JavaScript会一行一行执行的。但实际上这并不完全正确，有一种特殊情况会导致这个假设是错误的。</p> <div class="language-js extra-class"><pre class="language-js"><code>a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> a<span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>你认为console.log(...)声明会输出什么呢？很多人都认为会输出undefined;
+但是，真正输出的是2。</p> <p>考虑另一端代码</p> <div class="language-js extra-class"><pre class="language-js"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre></div><p>鉴于上一次代码，你可能认为这段代码也是输出2。还有人认为，由于变量a在使用前没有
+先进行声明，因此会抛出ReferenceError异常。</p> <p>不幸的是，两种猜测都是错误的。</p> <h3 id="_4-2-编译器再度来袭"><a href="#_4-2-编译器再度来袭" class="header-anchor">#</a> 4.2 编译器再度来袭</h3> <p>为了搞明白这个问题，回顾一下关于编译器的内容。
+引擎会在解释JavaScript代码之前首先对其进行编译。
+编译阶段的一部分工作就是找到所有声明，并用合适的作用域把他们关联起来。</p> <p>因此，正确的思考思路应该是，<strong>变量和函数在内的所有声明都会在代码执行前被处理</strong>。</p> <p>当你看到var a = 2 时； 你可能认为这是一个声明。但JavaScript引擎实际上会将其看成，
+var a 和 a = 2; <strong>第一个定义声明是在编译阶段进行的。第二个赋值阶段声明会被留在原地等待被执行。</strong></p> <p>我们的第一段代码会以如下形式进行处理：</p> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token keyword">var</span> a<span class="token punctuation">;</span>
+ a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>其中第一部分是编译，第二部分是执行。</p> <p>类似地，我们的第二段代码会以如下代码形式执行。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">var</span> a<span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre></div><p>因此，打个比方，这个过程就像<strong>变量或者函数</strong>从它们的代码中出现的<strong>位置被&quot;移动&quot;到了最上面</strong>。
+这个过程叫做<strong>提升</strong>;</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError，而是TypeError;</span>
+<span class="token keyword">var</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// ..</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这段程序的变量标识符foo被提示并且被分配给所有作用域（全局作用域）。
+因此foo()不会导致ReferenceError。但是foo此时并没有被赋值（如果是函数声明而不是
+函数表达式，那么就会赋值）。foo()由于对undefined值进行函数调用而导致非法操作，
+因此抛出TypeError。</p> <p>同时也要记住，即使是具名的函数表达式，名称标识符在赋值之前也无法在所有作用域中使用。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// typeError</span>
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// ReferenceError</span>
+
+<span class="token keyword">var</span> <span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// ..</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_4-3-函数优先"><a href="#_4-3-函数优先" class="header-anchor">#</a> 4.3 函数优先</h3> <p>函数声明和变量声明都会被提升。但是值得注意的一个细节（这个细节出现在多个重复声明的代码中）。
+是函数会被先提升然后才是变量。</p> <p>考虑以下代码：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+
+<span class="token keyword">var</span> foo<span class="token punctuation">;</span>
+
+<span class="token function-variable function">foo</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="第二章-作用域闭包"><a href="#第二章-作用域闭包" class="header-anchor">#</a> 第二章 作用域闭包</h2> <h3 id="_5-1"><a href="#_5-1" class="header-anchor">#</a> 5.1</h3> <p>闭包是基于词法作用域书写代码时所产生的自然结果，
+你甚至不需要为了利用它们而有意识地创建闭包。闭包的创建和使用在你的代码中随处可见。</p> <h3 id="_5-2"><a href="#_5-2" class="header-anchor">#</a> 5.2</h3> <p>当函数可以记住并访问所在词法作用域时，就产生闭包了，即使函数是在词法作用域外执行。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+   <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//2</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>下面我们看一段代码，清晰地展示了闭包</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+   <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">return</span> bar<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> baz <span class="token operator">=</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// a --朋友，这就是闭包的效果</span>
+</code></pre></div><p>函数bar()的词法作用域能够访问foo()的内部作用域。然后我们将bar()函数本身
+当作一个值类型进行传递。在这个例子中，我们将bar所引用的函数对象本身当作返回值。</p> <p>bar()显然可以被正常执行，但在这个例子中，它在自己定义的词法作用域以外的地方执行。</p> <p>在foo()执行后，通常foo()的整个内部作用域会被摧毁，因为引擎有垃圾回收器用来释放不再使用的空间。
+由于看上去foo()的内容不会再被使用，所以很自然的会考虑将其回收。</p> <p>而闭包的神奇之处正是可以阻止这件事情发生。事实上内部作用域依然存在，因此没有被回收。谁在使用这个作用域？
+原来是bar()本身在使用。</p> <p>拜bar()所声明的位置所赐，它拥有涵盖foo()内部作用域的闭包，使得改该作用域能够一直存活，以供bar()在之后任何时间使用。</p> <p>bar()依然持有对该作用域的引用，而这个引用就叫做闭包。</p> <p>这个函数在定义时的词法作用域以后的地方被调用。闭包使得函数可以继续访问定义时的词法作用域。</p> <p>当然，无论使用何种方式对函数类型的值进行传递，当函数在别处调用时都可以观察到闭包。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+   <span class="token keyword">function</span> <span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span>
+   <span class="token punctuation">}</span>
+   <span class="token function">bar</span><span class="token punctuation">(</span>baz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 快看，这里产生闭包了</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>把内部函数baz传递给bar, 当调用这个内部函数时（现在叫做fn）,它涵盖了foo()内部作用域的闭包就可以观测到了，因为它能够访问a。</p> <p>传递函数当然也可以是间接的。</p> <div class="language-js extra-class"><pre class="language-js"><code> <span class="token keyword">var</span> fn<span class="token punctuation">;</span>
+
+ <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+
+   <span class="token keyword">function</span> <span class="token function">baz</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+   fn <span class="token operator">=</span> baz<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 这是闭包。</span>
+ <span class="token punctuation">}</span>
+
+ <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span>
+</code></pre></div><h3 id="_5-3-现在我懂了"><a href="#_5-3-现在我懂了" class="header-anchor">#</a> 5.3 现在我懂了</h3> <p>闭包绝不仅仅是一个玩具。你已经写过的代码中一定到处都是闭包的身影我们现在来搞懂这个事实。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">wait</span><span class="token punctuation">(</span><span class="token parameter">message</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+   <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">wait</span><span class="token punctuation">(</span><span class="token string">&quot;Hello, closure&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>将一个内部函数（名为timer）传递给setTimeout(...)。timer具有涵盖wait(...)作用域的闭包，因此
+还保持有对变量message的引用。</p> <p>wait(..)执行1000毫秒后，它的作用域并不会消失，timer函数依然保有wait(...)作用域的闭包。</p> <p>在引擎内部，内置的工具函数setTimeout(..)持有对一个参数的引用，这个函数也许叫fn或者fnc,或者类似其他
+名字。引擎会调用这个函数，在例子中就是timer函数，而词法作用域在这个过程中保持完整。</p> <p>这就是闭包。</p> <p>本质上无论何时何地，如果将（访问它们各自词法作用域的）函数当作第一级的值类型并到处传递，就会看到闭包在这些函数中的应用。
+在定时器、事件监听函器、Ajax请求、跨窗口通信、web Works或者其他异步（或同步）任务中，只要使用了回调函数，实际上就是闭包！</p> <h3 id="_5-4-闭包与循环"><a href="#_5-4-闭包与循环" class="header-anchor">#</a> 5.4 闭包与循环</h3> <p>要说明闭包，for循环是最常见的例子。</p> <div class="language-js extra-class"><pre class="language-js"><code>   <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> i <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+</code></pre></div><p>正常情况下，我们对这段代码行为的的预期是分别输出数字1 ~ 5， 每秒一次，
+每次一个。</p> <p>但实际上，这段代码的运行时会以每秒一次的频率数次五次6.</p> <p>这是为什么？</p> <p>首先解释一下6是从哪里来的。这个循环的终止条件是i不再是&lt;=5。条件首次成立时的值
+是6.因此，输出显示的是循环结束时i的最终值。</p> <p>仔细一想，这好像又不是显而易见的，延迟函数的回调会在执行结束时才执行。事实上，
+当定时器运行时即使每个迭代中执行的是setTimeout(..,0),所有的回调函数依然是在
+循环结束才会被执行，因此会每次输出一个6出来。</p> <p>这里引申出一个更深入的问题，代码中到底有什么缺陷导致它的行为同语义所暗示的不一致呢？</p> <p>缺陷是我们假设循环中的每个迭代在运行时都会给自己“捕获”一个i的副本。但是根据作用域的
+工作原理，实际情况是尽管循环中的五个函数是带各个迭代中分别定义的，但是它们都被封闭
+在一个共享的全局作用域中，因此实际上只有一个i。</p> <p>这要说的话，当然所有函数共享一个i的引用。循环结构让我们误以为背后还有更复杂的机制在起
+作用，但实际上没有。如果将延迟函数的回调充值定义五次，完全不是使用循环，那么它同这段
+代码完全等价。</p> <p>下面回归正题。缺陷是什么？我们需要更多的闭包作用域，特别是在循环的过程中迭代都需要一个闭包作用域。</p> <p>第3章介绍过，IIFE会同声明并立即执行一个函数来创建作用域。</p> <p>我们来试一下：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> i <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这样没用。</p> <p>如果作用域是空的，那么仅仅将它们进行封闭是不够的。仔细看一下，
+我们的IIFE只是一个什么都没有的空作用域。它需要包含一点实质内容才能为我们所用。</p> <p>它需要有自己的变量，用来在每个迭代中存储i的值。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">var</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> j <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>改进</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">j</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> j <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>重返作用域</p> <p>我们使用IIFE在每次迭代时都创建一个新的作用域。换句话说，每次迭代我们都需要一个块作用域。</p> <p>本质上这是将这一个块换成一个可以被关闭的作用域。因此，下面这些看起来很酷的代码
+就可以正常运行了：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token keyword">let</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> <span class="token comment">// 是的,闭包的块作用域</span>
+   <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>j<span class="token punctuation">)</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span> j <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">timer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">,</span> i <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="_5-5模块"><a href="#_5-5模块" class="header-anchor">#</a> 5.5模块</h3></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/browser/backflow.html" class="prev">
+        回流与重绘
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.735e6fcb.js" defer></script><script src="/assets/js/2.5cb423a9.js" defer></script><script src="/assets/js/32.1d6b4690.js" defer></script>
+  </body>
+</html>
