@@ -1,7 +1,13 @@
 # Web-front-end-knowledge-system
 Summary of web front-end knowledge system
+```shell
+//更新
+npm update
 
-0. npm update
-1. //生成静态文件
+//生成静态文件
 npm run docs:build
-#OR 2. sh deploy.sh
+
+//OR 
+sh deploy.sh
+
+```
