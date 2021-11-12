@@ -20,6 +20,7 @@ module.exports = {
                     '/javaScript/dataType',
                     '/javaScript/variable',
                     '/javaScript/function',
+                    '/javaScript/function_diy',
                     '/javaScript/environment',
                     '/javaScript/operating-mechanism',
                     '/javaScript/closure',
