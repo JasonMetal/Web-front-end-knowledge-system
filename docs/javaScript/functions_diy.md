@@ -6,7 +6,7 @@
 //驼峰转换下划线
 //exp: enterGame => enter_game
 
-    protected toLine(name) {
+    function  toLine(name) {
         return name.replace(/([A-Z])/g, "_$1").toLowerCase();
     }
 
@@ -17,7 +17,7 @@
 "
         */
 
-    public static loadjsfile(fileName: any, type:string) {
+    function  loadJSFileName(fileName: any, type:string) {
 
         let oHead:any = document.getElementsByTagName('HEAD').item(0);
         let srcScript:any = document.createElement("script");
