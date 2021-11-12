@@ -21,6 +21,7 @@ module.exports = {
                     '/javaScript/variable',
                     '/javaScript/function',
                     '/javaScript/environment',
+                    '/javaScript/operating-mechanism',
                     '/javaScript/closure',
                     '/javaScript/RAM',
                     '/javaScript/object',
