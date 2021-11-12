@@ -2,7 +2,7 @@
 
 ## 字符串处理
 
-```
+```js
 //驼峰转换下划线
 //exp: enterGame => enter_game
 
