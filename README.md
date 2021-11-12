@@ -1,11 +1,11 @@
 # Web-front-end-knowledge-system
 Summary of web front-end knowledge system
 ```shell
-//更新
-npm update
-
+// 推荐使用 yarn
+ yarn # npm update
+ yarn install # npm install
 //生成静态文件
-npm run docs:build
+ yarn docs:build # npm run docs:build
 
 //OR 
 sh deploy.sh
