@@ -12,17 +12,21 @@
 
     /**
         * 加载js文件
-        * @param filename
-        * @param type
+        * @param fileName: any
+        * @param type: string  text/javascript
+"
         */
-        
-    public static loadjsfile(filename: any) {
-        var oHead:any = document.getElementsByTagName('HEAD').item(0);
-        var oScript:any = document.createElement("script");
-        oScript.type = "text/javascript";
-        oScript.charset = "utf-8";
-        oScript.src = filename;
-        oHead.appendChild(oScript);
+
+    public static loadjsfile(fileName: any, type:string) {
+
+        let oHead:any = document.getElementsByTagName('HEAD').item(0);
+        let srcScript:any = document.createElement("script");
+
+        srcScript.type = "text/javascript";
+        srcScript.charset = "utf-8";
+        srcScript.src = fileName;
+
+        oHead.appendChild(srcScript);
     }
 
 
