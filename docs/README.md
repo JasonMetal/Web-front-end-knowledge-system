@@ -2,6 +2,7 @@
 home: true
 actionText: Start →
 actionLink: /javaScript/dataType
+
 features:
 - title:
   details: 
@@ -9,5 +10,6 @@ features:
   details: 
 - title: 
   details: 
-footer: MIT Licensed | Copyright © 2020-author wzx
+footer: MIT Licensed | Copyright © 2020-author xxx
+
 ---

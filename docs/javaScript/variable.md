@@ -14,12 +14,13 @@
   赋值操作结束后，两个变量实际上将引用同一个对象。因此改变其中一个变量，就会影响另一个变量。
   看下例子：
    ```js
-     var obj1 = {
+
+     var person1 = {
 
      };
-     var obj2 = obj1;
-     obj1.name = 'wzx';
-     alter(obj2.name) // wzx wzx   
+     var person2 = person1;
+     person1.name = 'wzx';
+     alter(person2.name) // wzx wzx   
   ```
   通常在开发中我们不希望出现这样的问题，我们可以使用深浅浅拷贝来解决这个问题。后面会在高级技巧介绍深浅拷贝。
 

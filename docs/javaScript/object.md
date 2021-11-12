@@ -2,66 +2,59 @@
   
    ## 理解对象
    ### 属性类型
-  ES中有两种属性：数据属性和访问器属性
-  
-  1.数据属性包含了数据值的位置。在这个位置可以读取和写入值。数据属性有4个描述其行为的特性。
-  
-  [[Configurable]]:表示能否通过delete删除属性从而重新定义属性，能够修改属性的特性，或者能否把属性修改为访问器属性。
-  
-  [[Enumerable]]: 表示能否通过for-in 循环返回属性。
 
-  [[Writable]]: 表示能否修改属性的值。
+  js对象中有两种属性：**数据属性**和**访问器属性**
+  
+  1.数据属性包含了**数据值的位置**。在这个位置可以**读取**和**写入值**。数据属性有**4个**描述其行为的**特性**。
+  
+  **[[Configurable]]**: 表示能否通过**delete删除属性**从而**重新定义**属性，能够**修改**属性的特性，或者能否把属性修改为**访问器属性**。
+  
+  **[[Enumerable]]**: 表示能否通过**for-in** 循环返回属性。
 
-  [[Value]]: 包含这个属性的数据值。
+  **[[Writable]]**: 表示能否**修改**属性的**值**。
 
-  要修改属性默认的特性，必须使用ES5的Object.definedProperty()方法。
-  这个方法接收三个参数：属性所在的对象、属性的名字和一个描述符对象。
+  **[[Value]]**: 包含这个属性的**数据值**。
+
+  要修改属性默认的特性，必须使用**Object.definedProperty()**方法。
+  这个方法接收三个参数：**属性所在的对象**、**属性的名字**和**一个描述符对象**。
   其中描述符对象的属性必须是：configurable、enumerable、writable、
   和value。设置其中的一个或多个值，可以修改对应的特性值。例如：
 
   ```js
-    /* 可能有误
+
     var person = {}
-    Object.defindePropertotype(person, 'name', {
+    Object.defineProperty(person, 'name', {
       configurable: true,
       enumerable: true,
       writable: false,
       value: 'Nine'
     })
     person.name = 'xiaoming'
-    alter(p.name) // Nine */
-    
-    var person = {}
-    Object.defineProperty(person, 'name', {
-        configurable: true,
-        enumerable: true,
-        writable: false,
-        value: 'Nine'
-    })
-    person.name = 'xiaoming'
-    console.log(person.name) // Nine
 
+    alert(person.name) // Nine
+    
   ```
 
   2.访问器属性
 
-  [[Configurable]]: 表示能否通过delete删除属性从而重新定义属性，能够修改属性的特性，或者能否把属性修改为访问器属性。
+
+  [[Configurable]]: 表示能否通过**delete删除**属性从而**重新定义**属性，能够修改属性的**特性**，或者能否把属性修改为**访问器属性**。
 
   [[Enumerable]]: 表示能否通过for-in 循环返回属性。
 
-  [[Get]]: 在读取属性时调用的函数。
+  [[Get]]: 在**读取**属性时调用的函数。
 
-  [[Set]]: 在写入属性时调用的函数。
+  [[Set]]: 在**写入**属性时调用的函数。
 
-  访问器属性不能直接定义，必须使用Object.definedpropertoty()来定义。请看下面的例子。
-  
+  访问器属性不能直接定义，必须使用Object.defineProperty()来定义。请看下面的例子。
   ```js
       var book = {
         _year: 2004,
         edition: 1
       }
 
-      Object.defindeProperty (book, 'year', {
+
+      Object.defindeProtoperty (book, 'year', {
         get: function() {
           return this._year;
         },
@@ -76,10 +69,10 @@
       book.year = 2005;
       book.edition = 2;
 
-      console.log(JSON.stringify(book)) // {"_year":2005,"edition":2}
   ```
   3. 定义多个属性
-  Object.definedProtoperties()用于一次定义多个属性，例如：
+  Object.defineProperties()用于一次定义多个属性，例如：
+
   ```js
     var book = {}
     Object.defineProperties(book, {
@@ -106,7 +99,8 @@
   ```
    ## 创建对象
    虽然Object构造函数或对象字面量都可以用来创建单个对象，但这些方法有个明显的缺点：
-   使用一个接口创建很多对象，会产生大量的重复代码：为解决这个问题，人们开始使用工厂模式。
+
+   使用一个接口创建很多对象，会产生**大量的重复代码**：为解决这个问题，人们开始使用工厂模式。
 
    ### 工厂模式
    工厂模式的一个广为人知的设计模式，这种模式抽象了创建具体对象的过程。考虑到ES中无法创建类，

@@ -1,6 +1,7 @@
 module.exports = {
     title: '前端知识体系',
     description: 'Hello, my friend!',
+
     head: [
         ['link', {
             rel: 'icon',
@@ -18,6 +19,8 @@ module.exports = {
                 collapsable: true,
                 children: [
                     '/javaScript/dataType',
+                    '/javaScript/type',
+                    '/javaScript/val',
                     '/javaScript/variable',
                     '/javaScript/function',
                     '/javaScript/functions_diy',
@@ -30,7 +33,8 @@ module.exports = {
                     '/javaScript/Simulation',
                     '/javaScript/advancedSkills',
                     '/javaScript/es6',
-                ]
+                ],
+
             },
             {
                 title: '浏览器',
@@ -44,6 +48,13 @@ module.exports = {
                     '/browser/backflow',
                 ],
                 sidebarDepth: 2,
+            },
+            {
+                title: '读书笔记',
+                collapsable: true,
+                children: [
+                    '/readNode/yDknow/on',
+                ],
             },
             
         ]
