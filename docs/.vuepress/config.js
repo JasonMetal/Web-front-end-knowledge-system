@@ -1,6 +1,6 @@
 module.exports = {
     title: '前端知识笔记',
-    description: '',
+    description: '本博客属于个人总结记录，目前包括JavaScript、浏览器基本知识点',
     head: [
         ['link', {
             rel: 'icon',
@@ -34,6 +34,13 @@ module.exports = {
                 ],
             },
             {
+                title: 'React',
+                collapsable: true,
+                children: [
+                    '/React',
+                ],
+            },
+            {
                 title: '浏览器',
                 collapsable: true,
                 children: [
@@ -53,7 +60,6 @@ module.exports = {
                     '/readNode/yDknow/on',
                 ],
             },
-            
         ]
         // sidebar: {
         //     '/javaScript/': [

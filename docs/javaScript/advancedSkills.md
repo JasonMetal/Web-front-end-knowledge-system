@@ -802,7 +802,6 @@
       
       return result
   }
-  console.log(flatten(array))
   ```
 
   ### toString
@@ -814,7 +813,6 @@
           return +item
       })
   }
-  console.log(flatten(array))
   ```
 
   ### reduce
