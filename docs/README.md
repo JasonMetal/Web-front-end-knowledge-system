@@ -1,6 +1,7 @@
 ---
 home: true
 actionText: Start →
+actionLink: /javaScript/1.varType
 actionLink: /javaScript/dataType
 
 features:
