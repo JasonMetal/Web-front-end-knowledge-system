@@ -1,7 +1,6 @@
 module.exports = {
-    title: '前端知识体系',
-    description: 'Hello, my friend!',
-
+    title: '前端知识笔记',
+    description: '',
     head: [
         ['link', {
             rel: 'icon',
@@ -24,21 +23,6 @@ module.exports = {
                     '/javaScript/4.this',
                     '/javaScript/5.code',
                     '/javaScript/6.nativeCode',
-                    '/javaScript/dataType',
-                    '/javaScript/type',
-                    '/javaScript/val',
-                    '/javaScript/variable',
-                    '/javaScript/function',
-                    '/javaScript/functions_diy',
-                    '/javaScript/environment',
-                    '/javaScript/operating-mechanism',
-                    '/javaScript/closure',
-                    '/javaScript/RAM',
-                    '/javaScript/object',
-                    '/javaScript/Cross-domain',
-                    '/javaScript/Simulation',
-                    '/javaScript/advancedSkills',
-                    '/javaScript/es6',
                 ],
             },
             {
@@ -77,45 +61,38 @@ module.exports = {
                 sidebarDepth: 2,
             },
             {
-                title: '读书笔记',
-                collapsable: true,
-                children: [
-                    '/readNode/yDknow/on',
-                ],
+              title: 'Node',
+              collapsable: true,
+              children: [
+              ],
             },
             {
-                title: 'Node',
-                collapsable: true,
-                children: [
-                ],
+              title: '框架与库',
+              collapsable: true,
+              children: [
+                  '/TypeScript/advanced-types',
+              ],
             },
             {
-                title: '框架与库',
-                collapsable: true,
-                children: [
-                    '/TypeScript/advanced-types',
-                ],
-            },
-            {
-                title: '前端工程化',
-                collapsable: true,
-                children: [
+              title: '前端工程化',
+              collapsable: true,
+              children: [
 
-                ],
+              ],
             },
             {
-                title: '性能优化',
-                collapsable: true,
-                children: [
+              title: '性能优化',
+              collapsable: true,
+              children: [
 
-                ],
+              ],
             },
             {
-                title: '前端安全',
-                collapsable: true,
-                children: [
+              title: '前端安全',
+              collapsable: true,
+              children: [
 
-                ],
+              ],
             },
             {
                 title: '面试题',
@@ -134,21 +111,6 @@ module.exports = {
                 ],
             },
         ]
-        // sidebar: {
-        //     '/javaScript/': [
-        //     '',
-        //     ],
-        //     '/browser/': [
-        //     '',
-        //     ],
-        //     '/foo/': [
-        //     '',     /* /foo/ */
-        //     ],
-    
-        //     '/bar/': [
-        //     '',      /* /bar/ */
-        //     ],        
-        // }
     },
-    
+
 }

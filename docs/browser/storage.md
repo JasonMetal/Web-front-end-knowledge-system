@@ -1,7 +1,6 @@
 # 本地存储
 
-浏览器的本地存储主要分为`Cookie`、`WebStorage`和`IndexedDB`, 
-其中`WebStorage`又可以分为`localStorage`和`sessionStorage`。
+浏览器本地存储包括`cookie`和`webStorage`,`webStorage`分为`localstorage`和`sessionStrorage`
 
 ## Cookie
 
@@ -21,11 +20,6 @@ cookie是服务端发送并保持在客户端本地的一块数据，它会在�
 ### 作用
 cookie设计出来是为了弥补**http无状态的不足**
 
-1. 会话状态管理（如用户登录状态、购物车、游戏分数等其他需要记录的数据）
-
-2. 浏览器行为跟踪（如果跟踪分析用户行为等）
-
-#### 另一种回答
 1. 会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）
 
 2. 个性化设置（如用户自定义设置、主题等）
@@ -41,9 +35,12 @@ cookie设计出来是为了弥补**http无状态的不足**
 3. 有效期：服务端无设置，在关闭页面前有效；如果设服务有设置失效时间，在失效时间前有效。
 
 ### 缺陷
-1. 容量缺陷：cookie仅仅只能存储`4k`数据
-2. 性能问题：由于cookie紧跟域名，在相同域名的情况下无论请求是否需要都会携带cookie，如果是发送大量无用cookie会导致请求时的性能问题。
-3. 安全问题：cookie是以纯文本的形式存储，所以很容易被非法用户截取进行非法操作。而且cookie在httpOnly为false的情况，可以通过js去获取，十分危险。
+
+1. 容量缺陷：Cookie的只能存储`4k`信息
+
+2. 性能缺陷：Cookie 紧跟域名，不管域名下面的某一个地址需不需要这个 Cookie ，请求都会携带上完整的 Cookie，这样随着请求数的增多，其实会造成巨大的性能浪费的，因为请求携带了很多不必要的内容。
+
+3. 安全缺陷：cookie以纯文本的形式在浏览器和服务器之间传递，很容易被非法用户截取，进行一些了不法操作。另外，在HttpOnly为 false 的情况下，Cookie 信息能直接通过 JS 脚本来读取。
 
 ## localStorage
 
@@ -53,11 +50,9 @@ localStorage用来作为本地存储来使用的，解决了cookie不足的问�
 
 1. localStorage同一个域名下，会存储相同的一段localStorage。
 
-2. 容量：上限为5M
+2. localStorage 的容量上限为5M
 
-3. 位置：只存在客户端，这样就很好地避免了 Cookie 带来的性能问题和安全问题。
-
-4. 有效期：永久，除非手动清除
+3. 只存在客户端，这样就很好地避免了 Cookie 带来的性能问题和安全问题。
 
 
 ### 使用
@@ -86,8 +81,6 @@ let info = JSON.parse(localStorage.getItem("info"));
 2. 只存在客户端，默认不参与与服务端的通信。
 
 3. 接口封装。除了sessionStorage名字有所变化，存储方式、操作方式均和localStorage一样。
-
-4. 有效期：在关闭页面前有效
 
 sessionStorage 和 localStorage 本质的区别是：`sessionStorage`是会话级的，即关闭页面后储存的数据也随之消失。
 

@@ -7,14 +7,13 @@
     "doc": "docs"
   },
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "start": "vuepress dev docs",
+    "build": "vuepress build docs"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.4.0",
-    "watchpack": "^2.1.0"
-
-  }
+    "vuepress": "^1.4.0"
+  },
+  "dependencies": {}
 }
