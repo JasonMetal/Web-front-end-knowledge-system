@@ -1,4 +1,6 @@
-
+#IDE
+/.idea
+/.vscode
 # Compiled class file
 *.class
 *.vscode
