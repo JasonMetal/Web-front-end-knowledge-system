@@ -15,6 +15,12 @@ yum install yarn
  yarn install # npm install
 //生成静态文件
  yarn docs:build # npm run docs:build
+ 
+ 
+ 
+ 
+ 
+
 
 //OR 
 sh deploy.sh
