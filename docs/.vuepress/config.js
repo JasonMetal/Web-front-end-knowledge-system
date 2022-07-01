@@ -104,7 +104,7 @@ module.exports = {
                     '/mianshi/4.html、css',
                     '/mianshi/5.网络协议',
                     '/mianshi/6.浏览器',
-                    '/mianshi/7.框架',
+                    '/mianshi/7.框架.md',
                     '/mianshi/9.性能优化',
                     '/mianshi/10.前端安全',
                     '/mianshi/12.前端工程',
