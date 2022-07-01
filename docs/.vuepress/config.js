@@ -127,7 +127,6 @@ module.exports = {
                     '/mianshi/9.性能优化',
                     '/mianshi/10.前端安全',
                     '/mianshi/12.前端工程',
-                    '/mianshi/13.其他问题',
                 ],
             },
 
