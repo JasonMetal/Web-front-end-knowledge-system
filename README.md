@@ -14,7 +14,7 @@ yum install yarn
  yarn # npm update
  yarn install # npm install
 //生成静态文件
- yarn docs:build # npm run docs:build
+ yarn build # npm run build
  
  
  
