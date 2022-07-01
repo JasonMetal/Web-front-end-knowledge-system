@@ -1,6 +1,7 @@
 module.exports = {
-    title: '前端知识笔记',
-    description: '',
+    title: '前端知识体系',
+    description: 'Hello, my friend!',
+
     head: [
         ['link', {
             rel: 'icon',
@@ -23,6 +24,21 @@ module.exports = {
                     '/javaScript/4.this',
                     '/javaScript/5.code',
                     '/javaScript/6.nativeCode',
+                    '/javaScript/dataType',
+                    '/javaScript/type',
+                    '/javaScript/val',
+                    '/javaScript/variable',
+                    '/javaScript/function',
+                    '/javaScript/functions_diy',
+                    '/javaScript/environment',
+                    '/javaScript/operating-mechanism',
+                    '/javaScript/closure',
+                    '/javaScript/RAM',
+                    '/javaScript/object',
+                    '/javaScript/Cross-domain',
+                    '/javaScript/Simulation',
+                    '/javaScript/advancedSkills',
+                    '/javaScript/es6',
                 ],
             },
             {
@@ -59,7 +75,6 @@ module.exports = {
                     '/browser/netWork',
                     '/browser/parse',
                     '/browser/render',
-                    '/browser/safe',
                     '/browser/storage',
                 ],
                 sidebarDepth: 2,
@@ -114,6 +129,14 @@ module.exports = {
                     '/mianshi/10.前端安全',
                     '/mianshi/12.前端工程',
                     '/mianshi/13.其他问题',
+                ],
+            },
+
+            {
+                title: '读书笔记',
+                collapsable: true,
+                children: [
+                    '/readNode/yDknow/on',
                 ],
             },
         ]
