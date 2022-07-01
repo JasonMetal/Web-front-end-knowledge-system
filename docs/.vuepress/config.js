@@ -29,7 +29,10 @@ module.exports = {
               title: '网络协议',
               collapsable: true,
               children: [
-                  '/net/index',
+                  '/net/1.网络基础',
+                  '/net/2.http',
+                  '/net/3.https',
+                  '/net/4.http认证方式',
               ],
               sidebarDepth: 2,
             },
@@ -51,12 +54,13 @@ module.exports = {
                 title: '浏览器',
                 collapsable: true,
                 children: [
-                    '/browser/storage',
+                    '/browser/backflow',
                     '/browser/cache',
                     '/browser/netWork',
                     '/browser/parse',
                     '/browser/render',
-                    '/browser/backflow',
+                    '/browser/safe',
+                    '/browser/storage',
                 ],
                 sidebarDepth: 2,
             },
@@ -71,6 +75,7 @@ module.exports = {
               collapsable: true,
               children: [
                   '/TypeScript/advanced-types',
+                  '/TypeScript/basic-types',
               ],
             },
             {
@@ -104,10 +109,11 @@ module.exports = {
                     '/mianshi/4.html、css',
                     '/mianshi/5.网络协议',
                     '/mianshi/6.浏览器',
-                    '/mianshi/7.框架',
+                    // '/mianshi/7.框架',
                     '/mianshi/9.性能优化',
                     '/mianshi/10.前端安全',
                     '/mianshi/12.前端工程',
+                    '/mianshi/13.其他问题',
                 ],
             },
         ]
